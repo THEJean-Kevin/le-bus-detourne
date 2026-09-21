@@ -10,7 +10,18 @@ const { markers } = Astro.props;
 
 <script>
   import L from 'leaflet';
+  import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+  import markerIcon from 'leaflet/dist/images/marker-icon.png';
+  import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+  delete L.Icon.Default.prototype._getIconUrl;
   import 'leaflet/dist/leaflet.css';
+
+  L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
   const el = document.getElementById('carte');
   const markers = JSON.parse(el.dataset.markers);
@@ -30,7 +41,7 @@ const { markers } = Astro.props;
     L.marker([m.lat, m.lng])
       .addTo(map)
       .bindPopup(
-        `<strong>${m.label}</strong><br/><a href="geo:${m.geo}?q=${m.geo}" target="_blank" rel="noopener">Itinéraire</a>`
+        `<strong>${m.label}</strong><br/><a href="https://www.google.com/maps?q=${m.geo}" data-geo=${m.geo} target="_blank" rel="noopener">Itinéraire</a>`
       );
   });
 </script>
