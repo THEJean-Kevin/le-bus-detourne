@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 
 const valeurs = [
   { title: 'Convivialité', desc: 'Un lieu pour se retrouver' },
@@ -27,7 +28,7 @@ Elle aura une immense joie de vous accueillir au sein du bus !
 Il aura également le plaisir de vous recevoir dans le Bus.
       </p>
     </div>
-    <div class="photo-placeholder hero-photo"><img src="/images/equipeBus.jpg" alt="Le bus Dé'tourné, l'équipe" loading="lazy" /></div>
+    <div class="photo-placeholder hero-photo"><img src={base + "/images/equipeBus.jpg"} alt="Le bus Dé'tourné, l'équipe" loading="lazy" /></div>
   </section>
 
   <section class="section container">

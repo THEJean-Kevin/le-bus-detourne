@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { jeuxTypes, myludoUrl } from '../data/jeux.js';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Nos jeux" description="Plus de 200 jeux à bord du Bus Dé'tourné.">
@@ -28,7 +29,7 @@ import { jeuxTypes, myludoUrl } from '../data/jeux.js';
       {jeuxTypes.map((type) => (
         <article class="card">
           <div class="photo-placeholder">
-            <img src={type.photo} alt={type.title} loading="lazy" />
+            <img src={base + type.photo} alt={type.title} loading="lazy" />
           </div>
           <h3>{type.title}</h3>
           <p>{type.desc}</p>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Accueil" description="Le Bus Dé'tourné, bar à jeux nomade en Loire-Atlantique.">
@@ -19,7 +20,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
     <div class="photo-placeholder hero-photo">
-      <img src="/images/accueil/hero.jpg" alt="le bus, vue extérieure" />
+      <img src={base + "/images/accueil/hero.jpg"} alt="le bus, vue extérieure" />
     </div>
   </section>
 
@@ -32,19 +33,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </p>
     <div class="grid grid-3-up">
       <article class="card">
-        <div class="photo-placeholder"><img src="/images/accueil/ambiance.jpg" alt="ambiance extérieure" loading="lazy"
+        <div class="photo-placeholder"><img src={base + "/images/accueil/ambiance.jpg"} alt="ambiance extérieure" loading="lazy"
   decoding="async"/></div>
         <h3>Une ambiance conviviale</h3>
         <p>Un lieu pensé pour se retrouver.</p>
       </article>
       <article class="card">
-        <div class="photo-placeholder"><img src="/images/accueil/jeux.jpg" alt="jeux, intérieur du bus" loading="lazy"
+        <div class="photo-placeholder"><img src={base + "/images/accueil/jeux.jpg"} alt="jeux, intérieur du bus" loading="lazy"
   decoding="async"/></div>
         <h3>Des jeux pour tous</h3>
         <p>Profitez de plus de 200 jeux de société en accès illimité et gratuit en contrepartie d'une consommation. Du jeu d'ambiance au jeu expert, en passant par le jeu de stratégie, de réflexion, familial, enfant, ou encore d'enquête, vous trouverez votre bonheur parmi la diversité de jeux proposée !</p>
       </article>
       <article class="card">
-        <div class="photo-placeholder"><img src="/images/accueil/restauration.jpg" alt="restauration, intérieur du bus" loading="lazy"
+        <div class="photo-placeholder"><img src={base + "/images/accueil/restauration.jpg"} alt="restauration, intérieur du bus" loading="lazy"
   decoding="async"/></div>
         <h3>Petite restauration</h3>
         <p>Apéro, goûter, repas ou simplement une boissons; Venez tester notre cuisine gourmande 100 % faite maison ! Des produits locaux et de saison.</p>
@@ -59,8 +60,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       Quelques emplacements fixes chaque semaine — retrouvez-nous toujours au même endroit
       selon le jour.
     </p>
-    <a href="/nous-trouver" class="tournee-teaser">
-      <img src="/images/spots/jeudi.jpg" alt="" loading="lazy" />
+    <a href={base + "/nous-trouver"} class="tournee-teaser">
+      <img src={base + "/images/spots/jeudi.jpg"} alt="" loading="lazy" />
       <div class="tournee-teaser-content">
         <p>Découvrez tous nos emplacements de la semaine</p>
         <span class="btn btn-primary">Voir le planning</span>

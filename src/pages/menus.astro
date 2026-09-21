@@ -4,6 +4,7 @@ import { menuCategories } from '../data/menu.js';
 
 const repasCategories = menuCategories.filter((c) => c.group === 'repas');
 const boissonsCategories = menuCategories.filter((c) => c.group === 'boissons');
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Notre carte" description="La carte du Bus Dé'tourné : plats et boissons.">
@@ -29,7 +30,7 @@ const boissonsCategories = menuCategories.filter((c) => c.group === 'boissons');
               <article class="dish-card">
                 <div class="photo-wrap">
                   {item.photo ? (
-                    <img src={item.photo} alt={item.name} loading="lazy" />
+                    <img src={base + item.photo} alt={item.name} loading="lazy" />
                   ) : (
                     <div class="photo-placeholder">
                       <span>{item.name}</span>

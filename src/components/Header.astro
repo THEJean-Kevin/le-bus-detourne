@@ -2,12 +2,13 @@
 // Header.astro — utilisé par BaseLayout.astro sur toutes les pages.
 import { navLinks } from '../data/nav.js';
 
+const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 ---
 
 <header class="site-header">
-  <a href="/" class="logo">
-    <img src="/images/logo.png" alt="Logo Le Bus Dé'tourné" class="logo-img" width="734" height="286"/>
+  <a href={base} class="logo">
+    <img src={base + "/images/logo.png"} alt="Logo Le Bus Dé'tourné" class="logo-img" width="734" height="286"/>
   </a>
 
   <!-- Toggle du menu mobile en CSS pur : pas de JavaScript nécessaire -->
@@ -18,11 +19,11 @@ const currentPath = Astro.url.pathname;
 
   <nav class="site-nav" aria-label="Navigation principale">
     {navLinks.map((link) => (
-      <a href={link.href} class={currentPath === link.href ? 'current' : ''}>
+      <a href={base + link.href} class={currentPath === link.href ? 'current' : ''}>
         {link.label}
       </a>
     ))}
-    <a href="/nous-trouver" class="btn btn-primary nav-cta">Nous trouver</a>
+    <a href={base + "/nous-trouver"} class="btn btn-primary nav-cta">Nous trouver</a>
   </nav>
 </header>
 
