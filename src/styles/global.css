@@ -1,0 +1,164 @@
+/* ============================================================
+   GLOBAL.CSS — Le Bus Dé'tourné
+   Variables de design, reset, polices, classes utilitaires.
+   Ce fichier est importé une seule fois, dans BaseLayout.astro.
+   ============================================================ */
+
+
+:root {
+  /* Couleurs de la charte */
+  --color-teal-dark: #0d4042;   /* textes / header / footer */
+  --color-turquoise: #019899;   /* accents / liens */
+  --color-amber: #f4ab4b;       /* CTA uniquement, dosage faible */
+  --color-cream: #f7f1e2;       /* fond principal (légèrement assombri) */
+  --color-cream-card: #fffdf7;  /* fond des cartes */
+  --color-ink: var(--color-teal-dark);
+  --color-line: rgba(13, 64, 66, 0.14);
+
+  /* Typographie */
+  --font-title: 'Caveat', cursive;
+  --font-body: 'Quicksand', sans-serif;
+
+  /* Tailles fluides (s'adaptent en continu entre les breakpoints) */
+  --fs-h1: clamp(1.75rem, 1.4rem + 2.5vw, 3.4rem);
+  --fs-h2: clamp(1.5rem, 1.2rem + 1.2vw, 2.2rem);
+  --fs-body: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+
+  /* Espacements */
+  --space-section: clamp(2rem, 1.6rem + 2vw, 4rem);
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Largeur max de contenu */
+  --container-max: 1240px;
+}
+
+/* --- Reset minimal --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-ink);
+  background: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto; /* prend tout l'espace disponible */
+}
+
+footer {
+  flex-shrink: 0; /* reste collé en bas, jamais écrasé */
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--font-title); margin: 0; }
+p { margin: 0 0 1rem; }
+
+/* --- Conteneur --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* --- Sections --- */
+.section {
+  padding-block: var(--space-section);
+}
+.section + .section {
+  border-top: 1px solid var(--color-line);
+}
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-turquoise);
+  margin: 0 0 0.5rem;
+}
+.section h2 { font-size: var(--fs-h2); margin-bottom: 0.75rem; }
+
+/* --- Boutons --- */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 24px;
+  padding: 0.85rem 1.6rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+.btn-primary { background: var(--color-amber); color: var(--color-teal-dark); }
+.btn-outline { background: transparent; color: var(--color-teal-dark); border: 2px solid var(--color-teal-dark); padding: 0.7rem 1.4rem; }
+.btn-row { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+/* --- Cartes génériques --- */
+.card {
+  background: var(--color-cream-card);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.card img { border-radius: 8px; aspect-ratio: 4 / 3; object-fit: cover; }
+.card h3 { font-size: 1rem; font-family: var(--font-body); font-weight: 700; }
+.card p { font-size: 0.9rem; margin: 0; }
+
+/* --- Grilles responsives (mobile-first) --- */
+.grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .grid-2-up { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 780px) { .grid-3-up { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .grid-4-up { grid-template-columns: repeat(4, 1fr); } }
+
+/* --- Photo placeholder (à retirer une fois les vraies images en place) --- */
+.photo-placeholder {
+  background: repeating-linear-gradient(135deg, #d9d0b4, #d9d0b4 10px, #e6dfc6 10px, #e6dfc6 20px);
+  border: 1px solid #cabf9c;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  color: #7a6a3f; font-size: 0.8rem; font-weight: 600; padding: 0.6rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;           
+}
+.photo-placeholder:has(img) {
+  padding: 0;
+}
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* la photo remplit le cadre sans se déformer */
+  border-radius: inherit;
+}
+
+/* --- Note de contenu à compléter (visible seulement pendant le dev) --- */
+.todo-note {
+  font-size: 0.75rem; color: #8a7a4a; background: #fff3d9;
+  border: 1px dashed #d9c48a; border-radius: 8px; padding: 0.5rem 0.75rem; margin-top: 0.6rem;
+}
+
+/* ============================================================
+   Breakpoints de référence utilisés dans tout le site :
+   480px  (petit mobile → mobile standard)
+   768px  (mobile → tablette)
+   1024px (tablette → petit écran ordinateur)
+   1280px (confort grand écran)
+   Les tailles de police/espacement utilisent clamp() pour rester
+   fluides ENTRE ces paliers, et non pas juste "sauter" à chaque
+   breakpoint.
+   ============================================================ */

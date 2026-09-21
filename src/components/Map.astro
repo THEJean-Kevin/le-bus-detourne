@@ -1,0 +1,45 @@
+---
+// Map.astro — carte interactive Leaflet + OpenStreetMap
+export interface Props {
+  markers: { lat: number; lng: number; label: string; geo: string }[];
+}
+const { markers } = Astro.props;
+---
+
+<div id="carte" class="carte-leaflet" data-markers={JSON.stringify(markers)}></div>
+
+<script>
+  import L from 'leaflet';
+  import 'leaflet/dist/leaflet.css';
+
+  const el = document.getElementById('carte');
+  const markers = JSON.parse(el.dataset.markers);
+
+  const map = L.map(el);
+
+  const bounds = L.latLngBounds(markers.map((m) => [m.lat, m.lng]));
+  map.fitBounds(bounds, { padding: [30, 30] });
+
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 19,
+  }).addTo(map);
+
+  markers.forEach((m) => {
+    L.marker([m.lat, m.lng])
+      .addTo(map)
+      .bindPopup(
+        `<strong>${m.label}</strong><br/><a href="geo:${m.geo}?q=${m.geo}" target="_blank" rel="noopener">Itinéraire</a>`
+      );
+  });
+</script>
+
+<style>
+  .carte-leaflet {
+    width: 100%;
+    height: 420px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+</style>

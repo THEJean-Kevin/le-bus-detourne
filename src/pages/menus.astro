@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { menuCategories } from '../data/menu.js';
+
+const repasCategories = menuCategories.filter((c) => c.group === 'repas');
+const boissonsCategories = menuCategories.filter((c) => c.group === 'boissons');
+---
+
+<BaseLayout title="Notre carte" description="La carte du Bus Dé'tourné : plats et boissons.">
+  <section class="section container" id="carte-top">
+    <p class="section-label">La carte</p>
+    <h2>Notre carte</h2>
+    <p>Une carte simple, avec une photo pour chaque plat — pratique pour se décider d'un coup d'œil.</p>
+
+
+    <nav class="menu-tabs" aria-label="Catégories de la carte">
+      <a href="#cat-repas" class="menu-tab">🍽️ Restaurants</a>
+      <a href="#cat-boissons" class="menu-tab">🥤 Boissons</a>
+    </nav>
+
+    <h2>Carte Restaurant</h2>
+    <div id="cat-repas">
+      {repasCategories.map((cat) => (
+        <div class="menu-cat">
+          <h3>{cat.title}</h3>
+          {cat.note && <p class="boissons-note">{cat.note}</p>}
+          <div class="dish-grid">
+            {cat.items.map((item) => (
+              <article class="dish-card">
+                <div class="photo-wrap">
+                  {item.photo ? (
+                    <img src={item.photo} alt={item.name} loading="lazy" />
+                  ) : (
+                    <div class="photo-placeholder">
+                      <span>{item.name}</span>
+                    </div>
+                  )}
+                  {item.veget && (
+                    <span class="veget-badge" title="Végétarien">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6 3c8 0 12 4 12 10 0 4-3 7-7 7-4 0-6-2-6-2s3-1 5-3c-4 1-7-1-7-5C3 6 4 4 6 3z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                      Végétarien
+                    </span>
+                  )}
+                </div>
+                <div class="dish-info">
+                  <div class="dish-name-row">
+                    <span class="dish-name">{item.name}</span>
+                    <span class="price">{item.price}</span>
+                  </div>
+                  {item.description && (
+                    <p class="dish-desc">{item.description}</p>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h2>Carte Boissons</h2>
+
+    {boissonsCategories.map((cat) => (
+      <div class="menu-cat" id="cat-boissons">
+        <h3>{cat.title}</h3>
+        {cat.note && <p class="boissons-note">{cat.note}</p>}
+        <ul class="menu-list">
+          {cat.items.map((item) => (
+            <li class="menu-item">
+              <span>{item.name}</span>
+              {item.description && <span>{item.description}</span>}
+              <span class="price">{item.price}</span>
+            </li>
+          ))}
+        </ul>
+        
+      </div>
+    ))}
+  <a href="#carte-top" class="btn btn-outline back-to-top">▲ Remonter en haut</a>
+  </section>
+
+  <section class="section container">
+    <p class="section-label">Brunch</p>
+    <h2>Le brunch</h2>
+    <p>Formule brunch proposée tous les dimanches à Coueron, réservation obligatoire avant le vendredi 15h</p>
+    <ul>
+      <li>Boisson chaude au choix : café, thé, chocolat chaud</li>
+      <li>Boisson fraîche : pur jus d'orange</li>
+      <li>Viennoiserie au choix : pain au chocolat, croissant</li>
+      <li>Plat du Chef</li>
+      <li>Dessert du Chef</li>
+    </ul>
+    <p>23€/Personne</p>
+    <div class="photo-placeholder brunch-photo"><img src="/images/plats/Brunch.jpg" alt="brunch" loading="lazy" /></div>
+  </section>
+</BaseLayout>
+
+<style>
+  .menu-tabs {
+    display: flex;
+    gap: 0.6rem;
+    margin-block: 1.1rem 1.4rem;
+    position: sticky;
+    top: 64px; /* hauteur approx. du header sticky — ajuster si le header change */
+    background: var(--color-cream);
+    padding-block: 0.6rem;
+    z-index: 5;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .menu-tab {
+    border: 1.5px solid var(--color-turquoise);
+    color: var(--color-turquoise);
+    border-radius: 20px;
+    padding: 0.55rem 1.1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .menu-cat { margin-bottom: 2rem; }
+  .menu-cat h3 { font-size: 1.3rem; color: var(--color-turquoise); margin-bottom: 0.8rem; }
+
+  .dish-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  @media (min-width: 780px) { .dish-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .dish-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .photo-wrap {
+    position: relative;
+    width: 100%;
+    height: 18rem; /* hauteur fixe au lieu de aspect-ratio, garantit un alignement parfait */
+    background: #f2f2f2;
+  }
+
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    display: block;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+    color: #999;
+    font-size: 0.85rem;
+    background: repeating-linear-gradient(
+      45deg,
+      #f7f7f7,
+      #f7f7f7 10px,
+      #f0f0f0 10px,
+      #f0f0f0 20px
+    );
+  }
+
+  .veget-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #4a7c2f;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 999px;
+    line-height: 1;
+  }
+  .veget-badge svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dish-info {
+    padding: 0.75rem 1rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .dish-name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .dish-name { font-weight: 700; font-size: 1rem; }
+  .price { font-weight: 700; white-space: nowrap; }
+
+  .dish-desc {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  .boissons-note { font-size: 0.9rem; margin-bottom: 0.6rem; }
+  .menu-list { list-style: none; margin: 0; padding: 0; }
+  .menu-item {
+    display: flex; justify-content: space-between; gap: 0.75rem;
+    padding: 0.55rem 0; border-bottom: 1px dashed var(--color-line); font-size: 0.92rem;
+  }
+  .back-to-top { margin-top: 1rem; font-size: 0.85rem; padding: 0.55rem 1.1rem; }
+
+  .brunch-photo { min-height: 200px; }
+
+  #cat-repas {
+   border-bottom: 1px solid var(--color-line);
+  }
+  #cat-boissons {
+    padding-top: 1.5rem;
+  }
+
+  #cat-repas, #cat-boissons {
+    scroll-margin-top: 15rem; /* Adjust to match header height */
+  }
+</style>

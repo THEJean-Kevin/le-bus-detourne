@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const offres = [
+  { icon: '🏢', title: 'Entreprises', desc: 'Séminaires, afterworks, team building.' },
+  { icon: '🎉', title: 'Réceptions privées', desc: 'Anniversaires, mariages, fêtes de famille.' },
+  { icon: '🎪', title: 'Manifestations publiques', desc: 'Fêtes de quartier, festivals, marchés.' },
+];
+---
+
+<BaseLayout title="Privatisations" description="Privatisez le Bus Dé'tourné pour votre événement.">
+  <section class="section container">
+    <p class="section-label">Sur-mesure</p>
+    <h2>Privatisez le bus</h2>
+    <p>
+      Pour un anniversaire, un séminaire ou une fête de quartier, le Bus Dé'tourné se déplace
+      et s'adapte à votre événement.
+    </p>
+    <div class="grid grid-3-up">
+      {offres.map((o) => (
+        <article class="card priv-card">
+          <span class="icon">{o.icon}</span>
+          <h3>{o.title}</h3>
+          <p>{o.desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Comment ça se passe ?</h2>
+    <p>Nous adaptons nos propositions à vos demandes et à vos besoins pour une expérience unique avec vos équipes.</p>
+    <a class="btn btn-primary" href="/contact">Demander un devis</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .priv-card { align-items: flex-start; }
+  .icon {
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--color-turquoise); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+  }
+</style>

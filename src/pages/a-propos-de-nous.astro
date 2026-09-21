@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const valeurs = [
+  { title: 'Convivialité', desc: 'Un lieu pour se retrouver' },
+  { title: 'Le local', desc: 'Un maximum de producteurs locaux' },
+  { title: 'Simplicité', desc: 'Pas de chichi, juste passer un bon moment.' },
+];
+---
+
+<BaseLayout title="À propos" description="L'histoire du Bus Dé'tourné.">
+  <section class="hero container">
+    <div>
+      <p class="hero-eyebrow">Notre histoire</p>
+      <h2>L'histoire du bus</h2>
+      <p>
+        Comment est né le Bus Dé'tourné, par qui ?
+        Clément et Anaîs sont à l'origine de ce projet, envie d'originalité et de convivialité. Le bus à été importé d'Angletterre, puis aménagé afin de vous accueillir. Circulant depuis 2020, en Loire-Atlantique, le bus a déjà fait de nombreux événements et a accueilli des centaines de clients. Et c'est la que le projet deviens encore plus magnifique.
+        Yoann et Marion, voisins, ont prit l'habitude de venir boire un verre au bus. A force de venir, ils ont sympathisé avec Clément et Anaîs. Fût le moment, où Clément et Anais ont décidé d'arrete l'activité du bus. Mais Yoann et Marion, ne voulaient pas que le bus disparaisse. Alors ils ont décidé de reprendre le projet, afin de continuer à faire vivre le bus et de vous accueillir dans ce lieu unique.
+      </p>
+      <p>
+        <strong>Marion</strong>, issue de l'hôtellerie & de la restauration depuis plusieurs années et grâce à son expérience en cave&bar elle aura le plaisir de vous conseiller sur la carte de mets et boissons ! Le tout en mettant à l'honneur les producteurs locaux. 
+Elle aura une immense joie de vous accueillir au sein du bus !
+      </p>
+      <p>
+        <strong>Yoann</strong>, cuisinier de formation, et en a fait sa passion première ! Il vous régalera avec des plats maison que ce soit des planches apéritives, des tartines, des salades, des hot-dog, des gourmandises sucrées.
+Il aura également le plaisir de vous recevoir dans le Bus.
+      </p>
+    </div>
+    <div class="photo-placeholder hero-photo"><img src="/images/equipeBus.jpg" alt="Le bus Dé'tourné, l'équipe" loading="lazy" /></div>
+  </section>
+
+  <section class="section container">
+    <h2>Nos valeurs</h2>
+    <div class="grid grid-3-up">
+      {valeurs.map((v) => (
+        <article class="card">
+          <h3>{v.title}</h3>
+          <p>{v.desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 1.6rem;
+    align-items: center;
+    padding-block: clamp(2rem, 1.5rem + 2vw, 3rem);
+    grid-template-columns: 1fr;
+  }
+  .hero-eyebrow { font-weight: 700; color: var(--color-turquoise); font-size: 0.9rem; margin: 0 0 0.6rem; }
+  h2 { font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.6rem); margin-bottom: 0.7rem; }
+  .hero-photo { min-height: 220px; order: -1; }
+  @media (min-width: 900px) {
+    .hero { grid-template-columns: 1.1fr 0.9fr; }
+    .hero-photo { min-height: 320px; order: 0; }
+  }
+</style>

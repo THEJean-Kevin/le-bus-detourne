@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { jeuxTypes, myludoUrl } from '../data/jeux.js';
+---
+
+<BaseLayout title="Nos jeux" description="Plus de 200 jeux à bord du Bus Dé'tourné.">
+  <section class="section container">
+    <p class="section-label">Ludothèque</p>
+    <h2>Plus de 200 jeux à bord</h2>
+    <p>
+      Jeux d'ambiance, de stratégie, familiaux ou pour enfants : de quoi occuper toutes les
+      tables, quel que soit l'âge ou le nombre de joueurs.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href={myludoUrl} target="_blank" rel="noopener">
+        🔎 Chercher un jeu sur MyLudo ↗
+      </a>
+    </div>
+
+  </section>
+
+  <section class="section container">
+    <h2>Des jeux pour toutes les tables</h2>
+    <p>
+      Petits, grands, joueurs occasionnels ou passionnés : il y a toujours un jeu qui convient.
+    </p>
+    <div class="grid grid-3-up">
+      {jeuxTypes.map((type) => (
+        <article class="card">
+          <div class="photo-placeholder">
+            <img src={type.photo} alt={type.title} loading="lazy" />
+          </div>
+          <h3>{type.title}</h3>
+          <p>{type.desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

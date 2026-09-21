@@ -1,17 +1,119 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Accueil" description="Le Bus Dé'tourné, bar à jeux nomade en Loire-Atlantique.">
+  <section class="hero container">
+    <div>
+      <p class="hero-eyebrow">Un bar à jeux dans un bus anglais</p>
+      <h1>Un bus, des jeux,<br />et vous.</h1>
+      <p class="hero-text">
+        Le Bus Dé'tourné est un <strong>bar à jeux nomade</strong> qui circule depuis Juillet 2021 sur <strong>la région Nantaise</strong>.
+        Vous pouvez profiter de plus de <strong>200 jeux de société</strong>, en dégustant notre <strong>cuisine gourmande 100 % faite maison</strong>.
+        Nous vous accueillons dans une ambiance chaleureuse et originale au sein de notre bus Anglais d'époque.
+        Notre équipe se fera un plaisir de vous accueillir pour passer un bon moment au sein du bus !
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/nous-trouver">Nous trouver</a>
+        <a class="btn btn-outline" href="/notre-carte">Voir la carte</a>
+      </div>
+    </div>
+    <div class="photo-placeholder hero-photo">
+      <img src="/images/accueil/hero.jpg" alt="le bus, vue extérieure" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <p class="section-label">Le concept</p>
+    <h2>Un bar-jeux qui vient à vous</h2>
+    <p>
+      Chaque semaine, le bus s'installe sur quelques emplacements fixes de Loire-Atlantique :
+      boissons, petite restauration et une centaine de jeux de société pour tous les âges.
+    </p>
+    <div class="grid grid-3-up">
+      <article class="card">
+        <div class="photo-placeholder"><img src="/images/accueil/ambiance.jpg" alt="ambiance extérieure" loading="lazy"
+  decoding="async"/></div>
+        <h3>Une ambiance conviviale</h3>
+        <p>Un lieu pensé pour se retrouver.</p>
+      </article>
+      <article class="card">
+        <div class="photo-placeholder"><img src="/images/accueil/jeux.jpg" alt="jeux, intérieur du bus" loading="lazy"
+  decoding="async"/></div>
+        <h3>Des jeux pour tous</h3>
+        <p>Profitez de plus de 200 jeux de société en accès illimité et gratuit en contrepartie d'une consommation. Du jeu d'ambiance au jeu expert, en passant par le jeu de stratégie, de réflexion, familial, enfant, ou encore d'enquête, vous trouverez votre bonheur parmi la diversité de jeux proposée !</p>
+      </article>
+      <article class="card">
+        <div class="photo-placeholder"><img src="/images/accueil/restauration.jpg" alt="restauration, intérieur du bus" loading="lazy"
+  decoding="async"/></div>
+        <h3>Petite restauration</h3>
+        <p>Apéro, goûter, repas ou simplement une boissons; Venez tester notre cuisine gourmande 100 % faite maison ! Des produits locaux et de saison.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section container">
+    <p class="section-label">Notre tournée</p>
+    <h2>Où trouver le bus ?</h2>
+    <p>
+      Quelques emplacements fixes chaque semaine — retrouvez-nous toujours au même endroit
+      selon le jour.
+    </p>
+    <a href="/nous-trouver" class="tournee-teaser">
+      <img src="/images/spots/jeudi.jpg" alt="" loading="lazy" />
+      <div class="tournee-teaser-content">
+        <p>Découvrez tous nos emplacements de la semaine</p>
+        <span class="btn btn-primary">Voir le planning</span>
+      </div>
+    </a>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 1.8rem;
+    align-items: center;
+    padding-block: clamp(2rem, 1.5rem + 2vw, 3.6rem);
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-eyebrow { font-weight: 700; color: var(--color-turquoise); font-size: 0.9rem; margin: 0 0 0.6rem; }
+  h1 { font-size: var(--fs-h1); line-height: 1.05; margin-bottom: 0.8rem; }
+  .hero-text { font-size: 1rem; max-width: 46ch; margin-bottom: 1.4rem; }
+  .hero-photo { min-height: 220px; order: -1; }
+
+  @media (min-width: 900px) {
+    .hero { grid-template-columns: 1.1fr 0.9fr; }
+    .hero-photo { min-height: 340px; order: 0; }
+  }
+
+  .tournee-teaser {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  min-height: 240px;
+  text-decoration: none;
+}
+.tournee-teaser img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute; inset: 0;
+}
+.tournee-teaser-content {
+  position: relative;
+  height: 100%;
+  min-height: 240px;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end;
+  gap: 0.8rem;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, transparent 40%, rgba(13,64,66,0.85) 100%);
+  color: #fffbf0;
+}
+.tournee-teaser-content p {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+}
+</style>

@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Message envoyé"
+  description="Votre message a bien été envoyé au Bus Dé'tourné."
+>
+  <section class="section container">
+    <p class="section-label">Contact</p>
+
+    <h2>Merci pour votre message !</h2>
+
+    <div class="success-box">
+      <p>
+        Votre message a bien été envoyé.
+      </p>
+
+      <p>
+        Nous reviendrons vers vous dès que possible.
+      </p>
+    </div>
+
+    <p>
+      <a href="/contact/" class="btn btn-primary">
+        Retour à la page contact
+      </a>
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .success-box {
+    max-width: 600px;
+    margin: 1.5rem 0;
+    padding: 1.2rem;
+    background: var(--color-cream-card);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    line-height: 1.7;
+  }
+
+  .success-box p {
+    margin: 0;
+  }
+
+  .success-box p + p {
+    margin-top: 0.5rem;
+  }
+</style>
