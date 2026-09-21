@@ -1,10 +1,12 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
+const isPreview = process.env.BUILD_TARGET === 'preview';
+
 export default defineConfig({
-  site: 'https://www.lebusdetourne.fr',
+  site: isPreview
+    ? 'https://THEJean-Kevin.github.io'
+    : 'https://www.lebusdetourne.fr',
+  base: isPreview ? '/le-bus-detourne' : '/',
   integrations: [sitemap()],
 });
