@@ -6,8 +6,20 @@
 // différents (ex. mercredi + dimanche au même endroit).
 //
 // `photo` : chemin vers l'image dans /public/images/spots/
+export type Jour = 'Lundi' | 'Mardi' | 'Mercredi' | 'Jeudi' | 'Vendredi' | 'Samedi' | 'Dimanche';
 
-export const planning = [
+export interface Spot {
+  jour: Jour;
+  lieu: string;
+  adresse: string;
+  postal: string;
+  horaire: string;
+  photo: string;
+  geo: string;
+  alt: string;
+}
+
+export const planning: Spot[] = [
   {
     jour: 'Mercredi',
     lieu: 'Couëron',
@@ -16,7 +28,7 @@ export const planning = [
     horaire: '12h - 21h',
     photo: '/images/spots/mercredi.jpg',
     alt: "Le Bus Dé'tourné garé esplanade Jeremy Huguet à Couëron",
-    geo : "47.208999637060394,-1.7279982288685551"
+    geo : "47.20901968023503,-1.7285105306483666"
   },
   {
     jour: 'Jeudi',
@@ -46,6 +58,6 @@ export const planning = [
     horaire: '12h - 19h',
     photo: '/images/spots/mercredi.jpg',
     alt: "Le Bus Dé'tourné garé esplanade Jeremy Huguet à Couëron",
-    geo : "47.208999637060394,-1.7279982288685551"
+    geo : "47.20901968023503,-1.7285105306483666"
   },
 ];

@@ -10,40 +10,49 @@ const { markers } = Astro.props;
 
 <script>
   import L from 'leaflet';
-  import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-  import markerIcon from 'leaflet/dist/images/marker-icon.png';
-  import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import 'leaflet/dist/leaflet.css';
 
-  delete L.Icon.Default.prototype._getIconUrl;
-  import 'leaflet/dist/leaflet.css';
+const base = import.meta.env.BASE_URL; // important pour le déploiement GitHub Pages avec sous-chemin
 
-  L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerIcon2x,
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: `${base}images/leaflet/marker-icon-2x.png`,
+  iconUrl: `${base}images/leaflet/marker-icon.png`,
+  shadowUrl: `${base}images/leaflet/marker-shadow.png`,
 });
 
-  const el = document.getElementById('carte');
-  const markers = JSON.parse(el.dataset.markers);
+const el = document.getElementById('carte');
+if (!el) {
+  throw new Error('Élément #carte introuvable dans le DOM');
+}
+const markersData = el.dataset.markers;
+if (!markersData) {
+  throw new Error('Attribut data-markers manquant sur #carte');
+}
 
-  const map = L.map(el);
+interface MapMarker {
+  lat: number;
+  lng: number;
+  label: string;
+  geo: string;
+}
+const markers: MapMarker[] = JSON.parse(markersData);
 
-  const bounds = L.latLngBounds(markers.map((m) => [m.lat, m.lng]));
-  map.fitBounds(bounds, { padding: [30, 30] });
+const map = L.map(el);
+const bounds = L.latLngBounds(markers.map((m) => [m.lat, m.lng]));
+map.fitBounds(bounds, { padding: [30, 30] });
 
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 19,
+}).addTo(map);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
-    maxZoom: 19,
-  }).addTo(map);
-
-  markers.forEach((m) => {
-    L.marker([m.lat, m.lng])
-      .addTo(map)
-      .bindPopup(
-        `<strong>${m.label}</strong><br/><a href="https://www.google.com/maps?q=${m.geo}" data-geo=${m.geo} target="_blank" rel="noopener">Itinéraire</a>`
-      );
-  });
+markers.forEach((m) => {
+  L.marker([m.lat, m.lng])
+    .addTo(map)
+    .bindPopup(
+      `<strong>${m.label}</strong><br/><a href="https://www.google.com/maps?q=${m.geo}" target="_blank" rel="noopener">Itinéraire</a>`
+    );
+});
 </script>
 
 <style>

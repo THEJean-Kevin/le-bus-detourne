@@ -2,7 +2,23 @@
 // `group` vaut "repas" ou "boissons" — sert à savoir sous quel
 // Les boissons restent en simple liste sans photo.
 
-export const menuCategories = [
+export interface MenuItem {
+  name: string;
+  price: string;
+  description?: string;
+  photo?: string;
+  veget?: boolean;
+}
+
+export interface MenuCategory {
+  id: string;
+  title: string;
+  note?: string;
+  group: string;
+  items: MenuItem[];
+}
+
+export const menuCategories: MenuCategory[] = [
   {
     id: "sale",
     title: "Une petite faim",
@@ -77,13 +93,12 @@ export const menuCategories = [
   {
     id: "Nos vins",
     title: "Nos vins",
-    note: "Domaine de la Noué à St Julien de Concelles",
     group: "boissons",
     items: [
-      { name: "Muscadet", price: "4,00€", description: "Blanc sec"  },
-      { name: "P'tit Gris", price: "4,50€", description: "Blanc Fruité"  },
-      { name: "Rosé", price: "3,50€", description: "Rosé gamay, domaine des 3 lézards"  },
-      { name: "Pétillant", price: "4,50€", description: "Mousseux brut"  },
+      { name: "Muscadet (Blanc sec)", price: "4,00€", description: "Domaine de la Noué"  },
+      { name: "P'tit Gris (Blanc Fruité)", price: "4,50€", description: "Domaine de la Noué"  },
+      { name: "Rosé (Rosé gamay)", price: "3,50€", description: "Domaine des 3 lézards"  },
+      { name: "Pétillant (Mousseux brut)", price: "4,50€", description: "Domaine des 3 lézards"  },
     ],
   },
   {
@@ -93,7 +108,7 @@ export const menuCategories = [
     items: [
       { name: "Kir Nantais", price: "4,50€", description: "Vin blanc sec + créme (Cassis / Mûre / Pêche)"  },
       { name: "Kir Périllant", price: "5,50€", description: "Pétillant brut + créme (Cassis / Mûre / Pêche)"  },
-      { name: "Cocktail avec alcool", price: "Vois sur place", description: "Cocktail maison" },
+      { name: "Cocktail avec alcool", price: "Voir sur place", description: "Cocktail maison" },
     ],
   },
   {
@@ -111,7 +126,7 @@ export const menuCategories = [
       { name: "Sirop à l'eau 25cl", price: "1,50€", description: "Fraise / Citron / Menthe / Grenadide" },
       { name: "Diabolo 25cl", price: "2,50€", description: "Fraise / Citron / Menthe / Grenadide" },
       { name: "Eau plate 50cl", price: "1,00€"  },
-      { name: "Cocktail sans alcool", price: "Vois sur place", description: "Cocktail maison" },
+      { name: "Cocktail sans alcool", price: "Voir sur place", description: "Cocktail maison" },
     ],
   },
   {

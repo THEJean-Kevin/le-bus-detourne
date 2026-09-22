@@ -15,8 +15,8 @@ const base = import.meta.env.BASE_URL;
         Notre équipe se fera un plaisir de vous accueillir pour passer un bon moment au sein du bus !
       </p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="/nous-trouver">Nous trouver</a>
-        <a class="btn btn-outline" href="/notre-carte">Voir la carte</a>
+        <a class="btn btn-primary" href={base + "/nous-trouver"}>Nous trouver</a>
+        <a class="btn btn-outline" href={base + "/notre-carte"}>Voir la carte</a>
       </div>
     </div>
     <div class="photo-placeholder hero-photo">
@@ -57,7 +57,7 @@ const base = import.meta.env.BASE_URL;
     <p class="section-label">Notre tournée</p>
     <h2>Où trouver le bus ?</h2>
     <p>
-      Quelques emplacements fixes chaque semaine — retrouvez-nous toujours au même endroit
+      Quelques emplacements fixes chaque semaine - retrouvez-nous toujours au même endroit
       selon le jour.
     </p>
     <a href={base + "/nous-trouver"} class="tournee-teaser">

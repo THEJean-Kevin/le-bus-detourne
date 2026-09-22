@@ -97,7 +97,7 @@ const events = planning.map((spot) => {
   <section class="section container">
     <h2>Un événement à organiser ?</h2>
     <p>Le bus peut aussi venir pour une occasion privée ou professionnelle.</p>
-    <a class="btn btn-primary" href="/privatisations">Voir les privatisations</a>
+    <a class="btn btn-primary" href={base + "/privatisations"}>Voir les privatisations</a>
   </section>
 </BaseLayout>
 
@@ -132,7 +132,7 @@ const events = planning.map((spot) => {
 <script>
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   if (isMobile) {
-    document.querySelectorAll('a.geo-link[data-geo]').forEach((link) => {
+    document.querySelectorAll<HTMLAnchorElement>('a.geo-link[data-geo]').forEach((link) => {
       link.href = `geo:${link.dataset.geo}?q=${link.dataset.geo}`;
     });
   }
