@@ -2,6 +2,7 @@
 // BaseLayout.astro — enveloppe commune à toutes les pages.
 // Chaque page : import BaseLayout puis <BaseLayout title="..." description="...">.
 import Header from '../components/Header.astro';
+import AnnouncementBanner from "../components/AnnouncementBanner.astro";
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
@@ -66,6 +67,7 @@ const ogImageURL = new URL(image, Astro.site);
   </head>
   <body>
     <Header />
+    <AnnouncementBanner />
     <main>
       <slot />
     </main>

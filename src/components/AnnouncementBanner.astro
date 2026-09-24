@@ -1,0 +1,69 @@
+---
+// src/components/AnnouncementBanner.astro
+import { getActiveAnnouncements } from "../data/announcements";
+
+const active = getActiveAnnouncements();
+---
+
+{active.length > 0 && (
+  <div class="announcement-stack">
+    {active.map((a) => (
+      <div class="announcement-banner">
+        <p class="announcement-text">
+          {a.text}
+          {a.website && (
+            <a href={a.website} class="announcement-link" target="_blank" rel="noopener noreferrer">
+              En savoir plus
+            </a>
+          )}
+        </p>
+      </div>
+    ))}
+  </div>
+)}
+
+<style>
+  .announcement-stack {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .announcement-banner {
+    width: 100%;
+    background-color: #f4ab4b;
+    color: #0d4042;
+    padding: 0.6rem 1rem;
+    text-align: center;
+  }
+
+  .announcement-text {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-width: 900px;
+    margin-inline: auto;
+    /* passe à la ligne naturellement si le texte est trop long */
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .announcement-link {
+    display: inline-block;
+    margin-left: 0.6rem;
+    color: #0d4042;
+    font-weight: 600;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+
+  .announcement-link:hover {
+    color: #019899;
+  }
+
+  @media (max-width: 480px) {
+    .announcement-text {
+      font-size: 0.85rem;
+    }
+  }
+</style>
