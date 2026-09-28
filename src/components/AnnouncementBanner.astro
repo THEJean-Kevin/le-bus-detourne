@@ -7,6 +7,7 @@ const active = getActiveAnnouncements();
 
 {active.length > 0 && (
   <div class="announcement-stack">
+    <p class="announcement-title">Point Actualité</p>
     {active.map((a) => (
       <div class="announcement-banner">
         <p class="announcement-text">
@@ -23,6 +24,18 @@ const active = getActiveAnnouncements();
 )}
 
 <style>
+  .announcement-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0rem;
+    width: 100%;
+    background-color: #f4ab4b;
+    color: #0d4042;
+    padding-top: 0.6rem;
+    text-align: center;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
   .announcement-stack {
     display: flex;
     flex-direction: column;
@@ -35,6 +48,7 @@ const active = getActiveAnnouncements();
     color: #0d4042;
     padding: 0.6rem 1rem;
     text-align: center;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.14);
   }
 
   .announcement-text {
