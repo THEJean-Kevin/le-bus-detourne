@@ -52,7 +52,7 @@ export const menuCategories: MenuCategory[] = [
     items: [
       { name: "La Croust' Italie", description:"Pain de Campagne, Emincé de Poulet, Crème de Parmesan, Tuile de Parmesan & Tomates Cerises", price:"9,50€"},
       { name: "La veggie-Confite", description: "Pain de Campagne, Confiture maison Tomate-Basilic, Champignons, Poivrons Grillés & Tomates Cerises", price: "7,50€", veget:true},
-      { name: "L'Océane", descritpion: "Pain de Campagne, Crème Epaisse, Thon, Tomates, Concombres, Pickles d'Oignons & Oeuf Dur", price: "8€"}
+      { name: "L'Océane", description: "Pain de Campagne, Crème Epaisse, Thon, Tomates, Concombres, Pickles d'Oignons & Oeuf Dur", price: "8€"}
     ],
   },
   {
@@ -74,7 +74,7 @@ export const menuCategories: MenuCategory[] = [
       {name:"Brioche façon pain perdu", description:"Caramel au beurre salé",price:"4€"},
       {name:"La crêpe party du bus", descritpion:"Au choix : Sucre / Caramel au beurre salé / Nature", price:"3,50€"},
       {name:"Banana split", price:"6€"},
-      {name:"Coupe de glace", price:"1 boule- 1,50€ / 2 boules - 2,25€ / 3 boules - 3€"}
+      {name:"Coupe de glace", description:"1 boule- 1,50€ / 2 boules - 2,25€ / 3 boules - 3€"}
     ],
   },
        {id:"menu",
