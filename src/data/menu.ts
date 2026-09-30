@@ -28,9 +28,31 @@ export const menuCategories: MenuCategory[] = [
       { name: "Tartinade Du Moment", description: "accompagné de ses toasts", price: "4,50 €", photo: "/images/plats/Tartinade.avif" },
       { name: "Saucisson Du Moment (VPF)", price: "4,50 €" },
       { name: "Planche Du Bus", description: "à partager ou pas !", price: "15,00 €", photo: "/images/plats/PlancheDuBus.avif" },
-      { name: "Beignets de Courgettes", description: "Accompagnés d'une crème aux herbes", price: "6,00 €", veget: true },
       { name: "Gaspacho Tomate & Basilic", price: "4,00 €", veget: true, photo: "/images/plats/Gaspacho.avif" },
       { name: 'La Planche "Los Texos"', description: "Croque monsieur à la Tome de Couëron / Quesadillas à l'emmental, accompagné d'une confiture maison tomate-basilic", price: "5,50 €", photo: "/images/plats/LosTexos.avif" },
+    ],
+  },
+  {
+    id: "hotdogs",
+    title: "Hot-dogs",
+    note: "Saucisse de boeuf du Gaec du Marais à Couëron (44220)",
+    group: "repas",
+    items: [
+      { name: "Le Classique", description: "Pain Viennois, Saucisse de Boeuf & Sauce au Choix (Ketchup, Mayonnaise, Moutarde)", price: "6€"},
+      { name: "L'italien", description: "Pain Viennois, Saucisse de Boeuf, Crème de Parmesan & Tuile Parmesan", price: "8€"},
+      { name: "L'estival", description: "Pain Viennois, Thon, Concombres, Pickles d'Oignons & Crème épaisse", price: "5,50€"},
+      { name: "Le Champêtre", description: "Pain Viennois, Emincé de Poulet, Champignons, Tome de Couëron & Oignons", price: "7€"}
+    ],
+  },
+  {
+    id: "tartines",
+    title: "Tartines",
+    group: "repas",
+    note: "Pain de Campagne de notre boulanger Au Petit Pétrin à Couëron (44220)",
+    items: [
+      { name: "La Croust' Italie", description:"Pain de Campagne, Emincé de Poulet, Crème de Parmesan, Tuile de Parmesan & Tomates Cerises", price:"9,50€"},
+      { name: "La veggie-Confite", description: "Pain de Campagne, Confiture maison Tomate-Basilic, Champignons, Poivrons Grillés & Tomates Cerises", price: "7,50€", veget:true},
+      { name: "L'Océane", descritpion: "Pain de Campagne, Crème Epaisse, Thon, Tomates, Concombres, Pickles d'Oignons & Oeuf Dur", price: "8€"}
     ],
   },
   {
@@ -38,34 +60,29 @@ export const menuCategories: MenuCategory[] = [
     title: "Nos incontournables",
     group: "repas",
     items: [
-      
+      {name:"Le wrap poulet", description:"Crème Epaisse, Emincé de Poulet, Tomates, Champignons, Pickles d'oignons & Salade", price:"6,50€"},
+      {name:"La salade César du bus", description:"Salade, Emincé de Poulet (FR), Tome de Couëron, Croûtons, Oeuf Dur, Tomates Cerises & Sauce César", price:"9€"}
     ],
   },
-  {
-    id: "hotdogs",
-    title: "Hot-dogs",
-    group: "repas",
-    items: [
-      
-    ],
-  },
-  {
-    id: "tartines",
-    title: "Tartines",
-    group: "repas",
-    items: [
-      
-    ],
-  },
-  
   {
     id: "sucre",
     title: "Petites faims sucrées",
     group: "repas",
     items: [
-     
+      {name:"Salade de fruits frais", price:"3,50€"},
+      {name:"Cookie aux smarties", price:"3€"},
+      {name:"Brioche façon pain perdu", description:"Caramel au beurre salé",price:"4€"},
+      {name:"La crêpe party du bus", descritpion:"Au choix : Sucre / Caramel au beurre salé / Nature", price:"3,50€"},
+      {name:"Banana split", price:"6€"},
+      {name:"Coupe de glace", price:"1 boule- 1,50€ / 2 boules - 2,25€ / 3 boules - 3€"}
     ],
   },
+       {id:"menu",
+        title:"Le menu enfant - 8€",
+        group: "repas",
+        note: "1 soft + 1 demi tartine ou 1 demi hotdog au choix",
+          items:[]
+       },
   {
     id: "Nos Bières",
     title: "Nos Bières pression",
