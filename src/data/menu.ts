@@ -26,7 +26,7 @@ export const menuCategories: MenuCategory[] = [
     group: "repas",
     items: [
       { name: "Tartinade Du Moment", description: "accompagné de ses toasts", price: "4,50 €", photo: "/images/plats/Tartinade.avif" },
-      { name: "Saucisson Du Moment (VPF)", price: "4,50 €" },
+      { name: "Saucisson Du Moment (VPF)", price: "4,50 €", photo: "/images/plats/Saucisson.jpg" },
       { name: "Planche Du Bus", description: "à partager ou pas !", price: "15,00 €", photo: "/images/plats/PlancheDuBus.avif" },
       { name: "Gaspacho Tomate & Basilic", price: "4,00 €", veget: true, photo: "/images/plats/Gaspacho.avif" },
       { name: 'La Planche "Los Texos"', description: "Croque monsieur à la Tome de Couëron / Quesadillas à l'emmental, accompagné d'une confiture maison tomate-basilic", price: "5,50 €", photo: "/images/plats/LosTexos.avif" },
@@ -38,7 +38,7 @@ export const menuCategories: MenuCategory[] = [
     note: "Saucisse de boeuf du Gaec du Marais à Couëron (44220)",
     group: "repas",
     items: [
-      { name: "Le Classique", description: "Pain Viennois, Saucisse de Boeuf & Sauce au Choix (Ketchup, Mayonnaise, Moutarde)", price: "6€", photo: "/images/plats/HDClassique.avif" },
+      { name: "Le Classique", description: "Pain Viennois, Saucisse de Boeuf & Sauce au Choix (Ketchup, Mayonnaise, Moutarde)", price: "6€", photo: "/images/plats/HDClassique.jpg" },
       { name: "L'italien", description: "Pain Viennois, Saucisse de Boeuf, Crème de Parmesan & Tuile Parmesan", price: "8€", photo: "/images/plats/HDItalien.avif" },
       { name: "L'estival", description: "Pain Viennois, Thon, Concombres, Pickles d'Oignons & Crème épaisse", price: "5,50€", photo: "/images/plats/HDEstival.avif" },
       { name: "Le Champêtre", description: "Pain Viennois, Emincé de Poulet, Champignons, Tome de Couëron & Oignons", price: "7€", photo: "/images/plats/HDChampetre.avif" }
