@@ -38,10 +38,10 @@ export const menuCategories: MenuCategory[] = [
     note: "Saucisse de boeuf du Gaec du Marais à Couëron (44220)",
     group: "repas",
     items: [
-      { name: "Le Classique", description: "Pain Viennois, Saucisse de Boeuf & Sauce au Choix (Ketchup, Mayonnaise, Moutarde)", price: "6€"},
-      { name: "L'italien", description: "Pain Viennois, Saucisse de Boeuf, Crème de Parmesan & Tuile Parmesan", price: "8€"},
-      { name: "L'estival", description: "Pain Viennois, Thon, Concombres, Pickles d'Oignons & Crème épaisse", price: "5,50€"},
-      { name: "Le Champêtre", description: "Pain Viennois, Emincé de Poulet, Champignons, Tome de Couëron & Oignons", price: "7€"}
+      { name: "Le Classique", description: "Pain Viennois, Saucisse de Boeuf & Sauce au Choix (Ketchup, Mayonnaise, Moutarde)", price: "6€", photo: "/images/plats/HDClassique.avif" },
+      { name: "L'italien", description: "Pain Viennois, Saucisse de Boeuf, Crème de Parmesan & Tuile Parmesan", price: "8€", photo: "/images/plats/HDItalien.avif" },
+      { name: "L'estival", description: "Pain Viennois, Thon, Concombres, Pickles d'Oignons & Crème épaisse", price: "5,50€", photo: "/images/plats/HDEstival.avif" },
+      { name: "Le Champêtre", description: "Pain Viennois, Emincé de Poulet, Champignons, Tome de Couëron & Oignons", price: "7€", photo: "/images/plats/HDChampetre.avif" }
     ],
   },
   {
@@ -50,9 +50,9 @@ export const menuCategories: MenuCategory[] = [
     group: "repas",
     note: "Pain de Campagne de notre boulanger Au Petit Pétrin à Couëron (44220)",
     items: [
-      { name: "La Croust' Italie", description:"Pain de Campagne, Emincé de Poulet, Crème de Parmesan, Tuile de Parmesan & Tomates Cerises", price:"9,50€"},
-      { name: "La veggie-Confite", description: "Pain de Campagne, Confiture maison Tomate-Basilic, Champignons, Poivrons Grillés & Tomates Cerises", price: "7,50€", veget:true},
-      { name: "L'Océane", description: "Pain de Campagne, Crème Epaisse, Thon, Tomates, Concombres, Pickles d'Oignons & Oeuf Dur", price: "8€"}
+      { name: "La Croust' Italie", description:"Pain de Campagne, Emincé de Poulet, Crème de Parmesan, Tuile de Parmesan & Tomates Cerises", price:"9,50€",photo: "/images/plats/TartineItalie.avif"},
+      { name: "La veggie-Confite", description: "Pain de Campagne, Confiture maison Tomate-Basilic, Champignons, Poivrons Grillés & Tomates Cerises", price: "7,50€", veget:true, photo: "/images/plats/TartineVeggie.avif"},
+      { name: "L'Océane", description: "Pain de Campagne, Crème Epaisse, Thon, Tomates, Concombres, Pickles d'Oignons & Oeuf Dur", price: "8€", photo: "/images/plats/TartineOceane.avif"}
     ],
   },
   {
@@ -60,8 +60,8 @@ export const menuCategories: MenuCategory[] = [
     title: "Nos incontournables",
     group: "repas",
     items: [
-      {name:"Le wrap poulet", description:"Crème Epaisse, Emincé de Poulet, Tomates, Champignons, Pickles d'oignons & Salade", price:"6,50€"},
-      {name:"La salade César du bus", description:"Salade, Emincé de Poulet (FR), Tome de Couëron, Croûtons, Oeuf Dur, Tomates Cerises & Sauce César", price:"9€"}
+      {name:"Le wrap poulet", description:"Crème Epaisse, Emincé de Poulet, Tomates, Champignons, Pickles d'oignons & Salade", price:"6,50€", photo: "/images/plats/Wrap.avif"},
+      {name:"La salade César du bus", description:"Salade, Emincé de Poulet (FR), Tome de Couëron, Croûtons, Oeuf Dur, Tomates Cerises & Sauce César", price:"9€", photo: "/images/plats/Cesar.avif"}
     ],
   },
   {
@@ -69,12 +69,12 @@ export const menuCategories: MenuCategory[] = [
     title: "Petites faims sucrées",
     group: "repas",
     items: [
-      {name:"Salade de fruits frais", price:"3,50€"},
-      {name:"Cookie aux smarties", price:"3€"},
-      {name:"Brioche façon pain perdu", description:"Caramel au beurre salé",price:"4€"},
-      {name:"La crêpe party du bus", descritpion:"Au choix : Sucre / Caramel au beurre salé / Nature", price:"3,50€"},
-      {name:"Banana split", price:"6€"},
-      {name:"Coupe de glace", description:"1 boule- 1,50€ / 2 boules - 2,25€ / 3 boules - 3€"}
+      {name:"Salade de fruits frais", price:"3,50€", photo: "/images/plats/SaladeFruits.jpg"},
+      {name:"Cookie aux smarties", price:"3€",photo: "/images/plats/Cookie.avif"},
+      {name:"Brioche façon pain perdu", description:"Caramel au beurre salé",price:"4€", photo: "/images/plats/Brioche.avif"},
+      {name:"La crêpe party du bus", descritpion:"Au choix : Sucre / Caramel au beurre salé / Nature", price:"3,50€", photo: "/images/plats/Crepe.jpg"},
+      {name:"Banana split", price:"6€", photo: "/images/plats/Banana.avif"},
+      {name:"Coupe de glace", description:"1 boule- 1,50€ / 2 boules - 2,25€ / 3 boules - 3€", photo: "/images/plats/Glace.jpg"}
     ],
   },
        {id:"menu",
@@ -114,8 +114,8 @@ export const menuCategories: MenuCategory[] = [
     items: [
       { name: "Muscadet (Blanc sec)", price: "4,00€", description: "Domaine de la Noué"  },
       { name: "P'tit Gris (Blanc Fruité)", price: "4,50€", description: "Domaine de la Noué"  },
-      { name: "Rosé (Rosé gamay)", price: "3,50€", description: "Domaine des 3 lézards"  },
-      { name: "Pétillant (Mousseux brut)", price: "4,50€", description: "Domaine des 3 lézards"  },
+      { name: "Rosé", price: "3,50€"  },
+      { name: "Pétillant (Mousseux brut)", price: "4,50€", description: "Domaine de la Noué"  },
     ],
   },
   {
