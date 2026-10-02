@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Page introuvable | Le Bus Dé'tourné"
+  description="Cette page n'existe pas ou a changé d'adresse."
+>
+  <main class="page-404">
+    <p class="code">404</p>
+    <h1>Oups, cette page est introuvable</h1>
+    <p class="texte">
+      Le bus a pris un autre chemin ! La page que vous cherchez a peut-être changé
+      d'adresse. Retrouvez-nous depuis l'accueil, ou voyez où le bus s'arrête cette semaine.
+    </p>
+
+    <div class="boutons">
+      <a class="btn btn-principal" href={base}>Retour à l'accueil</a>
+      <a class="btn btn-secondaire" href={`${base}/nous-trouver`}>Où nous trouver</a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .page-404 {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    gap: 1rem;
+  }
+  .code {
+    font-family: 'Lazy Dog', sans-serif;
+    font-size: clamp(4rem, 15vw, 8rem);
+    color: #019899;
+    margin: 0;
+    line-height: 1;
+  }
+  h1 {
+    font-family: 'Lazy Dog', sans-serif;
+    color: #0d4042;
+    margin: 0;
+  }
+  .texte {
+    max-width: 38rem;
+    color: #0d4042;
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+  .boutons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    min-height: 48px;
+  }
+  .btn-principal {
+    background: #f4ab4b;
+    color: #0d4042;
+  }
+  .btn-secondaire {
+    background: transparent;
+    color: #0d4042;
+    border: 2px solid #0d4042;
+  }
+</style>
