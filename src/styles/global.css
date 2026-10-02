@@ -8,7 +8,7 @@
 :root {
   /* Couleurs de la charte */
   --color-teal-dark: #0d4042;   /* textes / header / footer */
-  --color-turquoise: #019899;   /* accents / liens */
+  --color-turquoise: #016f70;   /* accents / liens */
   --color-amber: #f4ab4b;       /* CTA uniquement, dosage faible */
   --color-cream: #f7f1e2;       /* fond principal (légèrement assombri) */
   --color-cream-card: #fffdf7;  /* fond des cartes */

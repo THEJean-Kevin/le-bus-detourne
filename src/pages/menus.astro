@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { resolveImage } from '../utils/images';
+import brunchImg from '../assets/images/plats/Brunch.jpg';
 import { menuCategories } from '../data/menu.ts';
 
 const repasCategories = menuCategories.filter((c) => c.group === 'repas');
@@ -30,7 +33,16 @@ const base = import.meta.env.BASE_URL;
               <article class="dish-card">
                 <div class="photo-wrap">
                   {item.photo ? (
-                    <img src={base + item.photo} alt={item.name} loading="lazy" />
+                    <Image
+                      src={resolveImage(item.photo)}
+                      alt={item.name}
+                      widths={[400, 800, 1100]}
+                      sizes="(max-width: 509px) calc(100vw - 40px), (max-width: 779px) calc((100vw - 64px) / 2), (max-width: 1240px) calc((100vw - 88px) / 3), 384px"
+                      format="webp"
+                      quality={75}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   ) : (
                     <div class="photo-placeholder">
                       <span>{item.name}</span>
@@ -97,7 +109,18 @@ const base = import.meta.env.BASE_URL;
       <li>Dessert du Chef</li>
     </ul>
     <p>23€/Personne</p>
-    <div class="photo-placeholder brunch-photo"><img src={base + "/images/plats/Brunch.jpg"} alt="brunch" loading="lazy" /></div>
+    <div class="photo-placeholder brunch-photo">
+      <Image
+        src={brunchImg}
+        alt="brunch"
+        widths={[500, 900, 1300]}
+        sizes="(max-width: 740px) calc(100vw - 40px), 700px"
+        format="webp"
+        quality={75}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
   </section>
 </BaseLayout>
 
@@ -265,7 +288,7 @@ const base = import.meta.env.BASE_URL;
   }
   .back-to-top { margin-top: 1rem; font-size: 0.85rem; padding: 0.55rem 1.1rem; }
 
-  .brunch-photo { min-height: 200px; }
+  .brunch-photo { max-width: 700px; margin-inline: auto; }
 
   #cat-repas {
    border-bottom: 1px solid var(--color-line);

@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import AnnouncementBanner from "../components/AnnouncementBanner.astro";
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import '@fontsource-variable/quicksand';
 
 interface Props {
   title: string;
@@ -43,13 +44,7 @@ const ogImageURL = new URL(image, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
-    <!-- Police Quicksand (texte courant) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    
     
     {import.meta.env.PUBLIC_NOINDEX && <meta name="robots" content="noindex, nofollow" />}
 

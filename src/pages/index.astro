@@ -1,5 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroImg from '../assets/images/accueil/hero.jpg';
+import ambianceImg from '../assets/images/accueil/ambiance.jpg';
+import jeuxImg from '../assets/images/accueil/jeux.jpg';
+import restaurationImg from '../assets/images/accueil/restauration.jpg';
+import jeudiImg from '../assets/images/spots/jeudi.jpg';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -20,7 +26,17 @@ const base = import.meta.env.BASE_URL;
       </div>
     </div>
     <div class="photo-placeholder hero-photo">
-      <img src={base + "/images/accueil/hero.jpg"} alt="le bus, vue extérieure" />
+      <Image
+        src={heroImg}
+        alt="le bus, vue extérieure"
+        widths={[500, 900, 1300]}
+        sizes="(max-width: 899px) calc(100vw - 40px), (max-width: 1240px) calc((100vw - 70px) * 0.45), 530px"
+        format="webp"
+        quality={75}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
     </div>
   </section>
 
@@ -33,20 +49,44 @@ const base = import.meta.env.BASE_URL;
     </p>
     <div class="grid grid-3-up">
       <article class="card">
-        <div class="photo-placeholder"><img src={base + "/images/accueil/ambiance.jpg"} alt="ambiance extérieure" loading="lazy"
-  decoding="async"/></div>
+        <div class="photo-placeholder"><Image
+            src={ambianceImg}
+            alt="ambiance extérieure"
+            widths={[350, 700, 1000]}
+            sizes="(max-width: 779px) calc(100vw - 78px), (max-width: 1240px) calc((100vw - 80px) / 3 - 38px), 350px"
+            format="webp"
+            quality={75}
+            loading="lazy"
+            decoding="async"
+          /></div>
         <h3>Une ambiance conviviale</h3>
         <p>Le Bus Dé'tourné, c'est l'endroit parfait pour déconnecter et se retrouver. Une atmosphère décontractée, des sourires, de la bonne humeur et un cadre verdoyant pour faire de chaque passage un vrai moment de convivialité.</p>
       </article>
       <article class="card">
-        <div class="photo-placeholder"><img src={base + "/images/accueil/jeux.jpg"} alt="jeux, intérieur du bus" loading="lazy"
-  decoding="async"/></div>
+        <div class="photo-placeholder"><Image
+            src={jeuxImg}
+            alt="jeux, intérieur du bus"
+            widths={[350, 700, 1000]}
+            sizes="(max-width: 779px) calc(100vw - 78px), (max-width: 1240px) calc((100vw - 80px) / 3 - 38px), 350px"
+            format="webp"
+            quality={75}
+            loading="lazy"
+            decoding="async"
+          /></div>
         <h3>Des jeux pour tous</h3>
         <p>Profitez de plus de 200 jeux de société en accès illimité et gratuit en contrepartie d'une consommation. Du jeu d'ambiance au jeu expert, en passant par le jeu de stratégie, de réflexion, familial, enfant, ou encore d'enquête, vous trouverez votre bonheur parmi la diversité de jeux proposés !</p>
       </article>
       <article class="card">
-        <div class="photo-placeholder"><img src={base + "/images/accueil/restauration.jpg"} alt="restauration, intérieur du bus" loading="lazy"
-  decoding="async"/></div>
+        <div class="photo-placeholder"><Image
+            src={restaurationImg}
+            alt="restauration, intérieur du bus"
+            widths={[350, 700, 1000]}
+            sizes="(max-width: 779px) calc(100vw - 78px), (max-width: 1240px) calc((100vw - 80px) / 3 - 38px), 350px"
+            format="webp"
+            quality={75}
+            loading="lazy"
+            decoding="async"
+          /></div>
         <h3>Petite restauration</h3>
         <p>Apéro, goûter, repas ou simplement une boisson; venez tester notre cuisine gourmande 100 % faite maison ! Des produits locaux et de saison.</p>
       </article>
@@ -60,7 +100,16 @@ const base = import.meta.env.BASE_URL;
       Consultez notre tournée hebdomadaire pour savoir où nous trouver aujourd'hui !
     </p>
     <a href={base + "/nous-trouver"} class="tournee-teaser">
-      <img src={base + "/images/spots/jeudi.jpg"} alt="" loading="lazy" />
+      <Image
+        src={jeudiImg}
+        alt=""
+        widths={[600, 1000, 1400]}
+        sizes="(max-width: 1240px) calc(100vw - 40px), 1200px"
+        format="webp"
+        quality={75}
+        loading="lazy"
+        decoding="async"
+      />
       <div class="tournee-teaser-content">
         <p>Découvrez tous nos emplacements de la semaine</p>
         <span class="btn btn-primary">Voir le planning</span>

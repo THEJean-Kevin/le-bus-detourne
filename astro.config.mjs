@@ -9,4 +9,5 @@ export default defineConfig({
     : 'https://www.lebusdetourne.fr',
   base: isPreview ? '/le-bus-detourne' : '/',
   integrations: [sitemap()],
+  build: { inlineStylesheets: 'always' },
 });
