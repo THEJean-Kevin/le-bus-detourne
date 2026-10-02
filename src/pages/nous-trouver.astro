@@ -69,7 +69,7 @@ const events = planning.map((spot) => {
     </p>
 
     <div class="week-strip">
-      {planning.map((spot) => (
+      {planning.map((spot, i) => (
         <article class="day-tile">
           <span class="day-name">{spot.jour}</span>
           <div class="photo-placeholder">
@@ -80,7 +80,8 @@ const events = planning.map((spot) => {
               sizes="(max-width: 559px) calc(100vw - 71px), (max-width: 999px) calc((100vw - 56px) / 2 - 31px), (max-width: 1240px) calc((100vw - 88px) / 4 - 31px), 257px"
               format="webp"
               quality={75}
-              loading="lazy"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchpriority={i === 0 ? 'high' : undefined}
               decoding="async"
             />
           </div>
