@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUILD_TARGET: preview
+      PUBLIC_NOINDEX: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

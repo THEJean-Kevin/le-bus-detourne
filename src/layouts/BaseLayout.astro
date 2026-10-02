@@ -50,6 +50,8 @@ const ogImageURL = new URL(image, Astro.site);
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    
+    {import.meta.env.PUBLIC_NOINDEX && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Données structurées LocalBusiness (sert pour toutes les pages, Google privilégie la home) -->
     <script type="application/ld+json" set:html={JSON.stringify({
