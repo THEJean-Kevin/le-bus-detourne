@@ -7,7 +7,7 @@ export default defineConfig({
   site: isPreview
     ? 'https://THEJean-Kevin.github.io'
     : 'https://www.lebusdetourne.fr',
-  base: isPreview ? '/le-bus-detourne' : '/',
+  base: isPreview ? '/le-bus-detourne' : '',
   integrations: [sitemap()],
   build: { inlineStylesheets: 'always' },
 });

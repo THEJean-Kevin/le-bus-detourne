@@ -6,13 +6,16 @@ import AnnouncementBanner from "../components/AnnouncementBanner.astro";
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import '@fontsource-variable/quicksand';
+import logo from '../assets/images/logo.png'
+import ogDefault from '../assets/images/og-default.jpg'
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 interface Props {
   title: string;
   description?: string;
   image?: string;
 }
-const { title, description = "Bar à jeux nomade en Loire-Atlantique.", image = "/images/og-default.jpg" } = Astro.props;
+const { title, description = "Bar à jeux nomade en Loire-Atlantique.", image = ogDefault.src } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
@@ -26,7 +29,7 @@ const ogImageURL = new URL(image, Astro.site);
     <title>{title} · Le Bus Dé'tourné</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="icon" href="/favicon.svg" />
+    <link rel="icon" href={`${base}/favicon.svg`} />
 
 
     <!-- Open Graph / partage réseaux sociaux -->
@@ -34,7 +37,7 @@ const ogImageURL = new URL(image, Astro.site);
     <meta property="og:title" content={`${title} · Le Bus Dé'tourné`} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image" content={ogImageURL.toString()} />
     <meta property="og:locale" content="fr_FR" />
 
 
@@ -42,7 +45,7 @@ const ogImageURL = new URL(image, Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} · Le Bus Dé'tourné`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:image" content={ogImageURL.toString()} />
 
     
     
@@ -55,10 +58,18 @@ const ogImageURL = new URL(image, Astro.site);
       "name": "Le Bus Dé'tourné",
       "description": "Bar-restaurant à jeux nomade en Loire-Atlantique",
       "url": Astro.site?.toString(),
-      "image": ogImageURL.toString(),
+      "logo": new URL(logo.src, Astro.site).toString(),
+      "image": new URL(ogDefault.src, Astro.site).toString(),
       "servesCuisine": "Street food",
       "priceRange": "€€",
-      "areaServed": "Loire-Atlantique"
+      "areaServed": "Loire-Atlantique",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Cash, Credit Card",
+      "hasMenu": new URL(base + "/menus", Astro.site).toString(),
+      "sameAs": [
+        "https://www.instagram.com/le_bus_detourne/",
+        "https://www.facebook.com/LeBusDetourne"
+      ]
     })} />
 
   </head>

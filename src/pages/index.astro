@@ -6,7 +6,7 @@ import ambianceImg from '../assets/images/accueil/ambiance.jpg';
 import jeuxImg from '../assets/images/accueil/jeux.jpg';
 import restaurationImg from '../assets/images/accueil/restauration.jpg';
 import jeudiImg from '../assets/images/spots/jeudi.jpg';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout title="Accueil" description="Le Bus Dé'tourné, bar à jeux nomade en Loire-Atlantique.">

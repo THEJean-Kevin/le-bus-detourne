@@ -3,12 +3,12 @@
 import { navLinks } from '../data/nav.ts';
 import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.png';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
 ---
 
 <header class="site-header">
-  <a href={base} class="logo">
+  <a href={base || '/'} class="logo">
     <Image
       src={logo}
       alt="Logo Le Bus Dé'tourné"

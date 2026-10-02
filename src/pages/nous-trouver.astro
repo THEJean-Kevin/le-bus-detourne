@@ -4,7 +4,9 @@ import { Image } from 'astro:assets';
 import { resolveImage } from '../utils/images';
 import { planning } from '../data/planning.ts';
 import Map from '../components/Map.astro';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const SITE = (Astro.site?.toString() ?? 'https://www.lebusdetourne.fr').replace(/\/$/, '');
 
 const markers = planning.map((spot) => {
   const [lat, lng] = spot.geo.split(',').map(Number);
@@ -12,54 +14,51 @@ const markers = planning.map((spot) => {
 });
 
 
-const jourISO = {
+const jourISO: Record<string, string> = {
   'Lundi': 'Monday', 'Mardi': 'Tuesday', 'Mercredi': 'Wednesday',
   'Jeudi': 'Thursday', 'Vendredi': 'Friday', 'Samedi': 'Saturday', 'Dimanche': 'Sunday'
 };
 
-const events = planning.map((spot) => {
-  const [lat, lng] = spot.geo.split(',').map(Number);
-  const [heureDebut, heureFin] = spot.horaire.split(' - ').map(h => h.trim());
+const slug = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
+
+  const heure = (t: string) => {
+  const m = t.match(/(\d{1,2})\s*[h:]\s*(\d{2})?/i);
+  if (!m) throw new Error(`Horaire illisible : "${t}" (attendu : 17h30 - 21h30)`);
+  return `${m[1].padStart(2, '0')}:${m[2] ?? '00'}`;
+};
+
+const places = planning.map((spot) => {
+  const [lat, lng] = spot.geo.split(',').map(Number);
+  const [debut, fin] = spot.horaire.split(/\s*[-–—]\s*/).map(heure);
   return {
-    "@type": "Event",
-    "name": `Le Bus Dé'tourné à ${spot.lieu}`,
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "eventSchedule": {
-      "@type": "Schedule",
-      "byDay": `https://schema.org/${jourISO[spot.jour]}`,
-      "startTime": heureDebut,
-      "endTime": heureFin,
-      "repeatFrequency": "P1W" // hebdomadaire
+    "@type": "Place",
+    "@id": `${SITE}/#lieu-${slug(`${spot.jour}-${spot.lieu}`)}`,
+    "name": spot.lieu,
+    "hasMap": `https://www.google.com/maps?q=${spot.geo}`,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": spot.adresse,
+      "addressLocality": spot.lieu,
+      "postalCode": spot.postal.split(' ')[0],
+      "addressCountry": "FR"
     },
-    "location": {
-      "@type": "Place",
-      "name": spot.lieu,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": spot.adresse,
-        "addressLocality": spot.lieu,
-        "postalCode": spot.postal.split(' ')[0],
-        "addressCountry": "FR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": lat,
-        "longitude": lng
-      }
-    },
-    "organizer": {
-      "@type": "FoodEstablishment",
-      "name": "Le Bus Dé'tourné"
+    "geo": { "@type": "GeoCoordinates", "latitude": lat, "longitude": lng },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": `https://schema.org/${jourISO[spot.jour]}`,
+      "opens": debut,
+      "closes": fin
     }
   };
 });
 ---
 
 <BaseLayout title="Nous trouver" description="Retrouvez Le Bus Dé'tourné chaque semaine à Couëron, Saint-Étienne-de-Montluc et Grandchamps-des-Fontaines.">
-  <script type="application/ld+json" set:html={JSON.stringify({
+ <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@graph": events
+    "@graph": places
   })} />
   <section class="section container">
     <p class="section-label">Planning</p>

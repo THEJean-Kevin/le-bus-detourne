@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout
@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL;
     </p>
 
     <div class="boutons">
-      <a class="btn btn-principal" href={base}>Retour à l'accueil</a>
+      <a class="btn btn-principal" href={base || '/'}>Retour à l'accueil</a>
       <a class="btn btn-secondaire" href={`${base}/nous-trouver`}>Où nous trouver</a>
     </div>
   </main>
