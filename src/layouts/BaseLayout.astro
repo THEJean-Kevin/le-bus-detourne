@@ -6,6 +6,11 @@ import AnnouncementBanner from "../components/AnnouncementBanner.astro";
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import '@fontsource-variable/quicksand';
+import '@fontsource-variable/caveat';
+
+import quicksandUrl from '@fontsource-variable/quicksand/files/quicksand-latin-wght-normal.woff2?url';
+import caveatUrl from '@fontsource-variable/caveat/files/caveat-latin-wght-normal.woff2?url';
+
 import logo from '../assets/images/logo.png'
 import ogDefault from '../assets/images/og-default.jpg'
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -30,6 +35,9 @@ const ogImageURL = new URL(image, Astro.site);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" href={`${base}/favicon.svg`} />
+
+    <link rel="preload" as="font" type="font/woff2" href={quicksandUrl} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={caveatUrl} crossorigin />
 
 
     <!-- Open Graph / partage réseaux sociaux -->
