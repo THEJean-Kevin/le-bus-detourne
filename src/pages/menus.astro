@@ -35,7 +35,7 @@ const boissonsCategories = menuCategories.filter((c) => c.group === 'boissons');
                     <Image
                       src={resolveImage(item.photo)}
                       alt={item.name}
-                      widths={[400, 800, 1100]}
+                      widths={[400, 800, 1100]} width={800}
                       sizes="(max-width: 509px) calc(100vw - 40px), (max-width: 779px) calc((100vw - 64px) / 2), (max-width: 1240px) calc((100vw - 88px) / 3), 384px"
                       format="webp"
                       quality={75}
@@ -113,7 +113,7 @@ const boissonsCategories = menuCategories.filter((c) => c.group === 'boissons');
       <Image
         src={brunchImg}
         alt="brunch"
-        widths={[500, 900, 1300]}
+        widths={[500, 900, 1300]} width={900}
         sizes="(max-width: 740px) calc(100vw - 40px), 700px"
         format="webp"
         quality={75}

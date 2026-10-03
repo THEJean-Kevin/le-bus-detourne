@@ -75,7 +75,7 @@ const places = planning.map((spot) => {
             <Image
               src={resolveImage(spot.photo)}
               alt={spot.alt}
-              widths={[300, 600, 900]}
+              widths={[300, 600, 900]} width={600}
               sizes="(max-width: 559px) calc(100vw - 71px), (max-width: 999px) calc((100vw - 56px) / 2 - 31px), (max-width: 1240px) calc((100vw - 88px) / 4 - 31px), 257px"
               format="webp"
               quality={75}

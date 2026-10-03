@@ -32,7 +32,7 @@ import { jeuxTypes, myludoUrl } from '../data/jeux.ts';
             <Image
               src={resolveImage(type.photo)}
               alt={type.title}
-              widths={[350, 700, 1000]}
+              widths={[350, 700, 1000]} width={700}
               sizes="(max-width: 779px) calc(100vw - 78px), (max-width: 1240px) calc((100vw - 80px) / 3 - 38px), 350px"
               format="webp"
               quality={75}
