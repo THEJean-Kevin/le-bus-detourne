@@ -33,7 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // IMPORTANT : remplacer par votre vraie adresse OVH.
 $destination = 'lebusdetourne@hotmail.com';
 
-$siteName = "contact@lebusdetourne.fr";
+$fromAddress = 'contact@lebusdetourne.fr';
+$fromName    = "Le Bus Dé'tourné";
 
 /*
  * Sel utilisé pour anonymiser le nom du fichier de rate-limit.
@@ -378,12 +379,7 @@ $contenu =
 
 $headers = [];
 
-$headers[] =
-    'From: '
-    . $siteName
-    . ' <'
-    . $destination
-    . '>';
+$headers[] = 'From: =?UTF-8?B?' . base64_encode($fromName) . '?= <' . $fromAddress . '>';
 
 $headers[] =
     'Reply-To: '
@@ -396,6 +392,7 @@ $headers[] =
     'Content-Type: text/plain; charset=UTF-8';
 
 
+$sujetEncode = '=?UTF-8?B?' . base64_encode($sujet) . '?=';
 /*
  * ============================================================
  * ENVOI
@@ -404,7 +401,7 @@ $headers[] =
 
 $success = @mail(
     $destination,
-    $sujet,
+    $sujetEncode,
     $contenu,
     implode("\r\n", $headers)
 );
