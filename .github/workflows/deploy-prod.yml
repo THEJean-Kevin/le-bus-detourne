@@ -2,7 +2,7 @@ name: Déploiement prod (OVH)
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   deploy:
