@@ -34,7 +34,10 @@ const ogImageURL = new URL(image, Astro.site);
     <title>{title} · Le Bus Dé'tourné</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="icon" href={`${base}/favicon.svg`} />
+    <link rel="icon" sizes="192x192" href={`${base}/favicon.png`} />
+    <link rel="shortcut icon" href={`${base}/favicon.png`} />
+    <link rel="apple-touch-icon" href={`${base}/favicon.png`} />
+
 
     <link rel="preload" as="font" type="font/woff2" href={quicksandUrl} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={caveatUrl} crossorigin />
