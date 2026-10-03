@@ -29,7 +29,7 @@
 // IMPORTANT : remplacer par votre vraie adresse OVH.
 $destination = 'lebusdetourne@hotmail.com';
 
-$siteName = "Le Bus Dé'tourné";
+$siteName = "contact@lebusdetourne.fr";
 
 /*
  * Sel utilisé pour anonymiser le nom du fichier de rate-limit.
