@@ -1,0 +1,34 @@
+RewriteEngine On
+
+# 1. Forcer HTTPS (directement vers la version www)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://www.lebusdetourne.fr/$1 [R=301,L]
+
+# 2. Forcer www
+RewriteCond %{HTTP_HOST} ^lebusdetourne\.fr$ [NC]
+RewriteRule ^(.*)$ https://www.lebusdetourne.fr/$1 [R=301,L]
+
+# Redirections 301 depuis l'ancien site Wix
+RewriteRule ^notre-brunch/?$ /menus [R=301,L]
+RewriteRule ^privatiser-le-bus/?$ /privatisations [R=301,L]
+RewriteRule ^réceptions-privées/?$ /privatisations [R=301,L]
+RewriteRule ^contact-9/?$ /contact [R=301,L]
+
+# Page 404
+ErrorDocument 404 /404.html
+
+# Compression et cache
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+<Files ".ftp-deploy-sync-state.json">
+  Require all denied
+</Files>
