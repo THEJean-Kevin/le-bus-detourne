@@ -32,9 +32,9 @@ export const planning: Spot[] = [
   },
   {
     jour: 'Jeudi',
-    lieu: 'St Etienne de Montluc',
+    lieu: 'Saint-Étienne-de-Montluc',
     adresse: 'Place Foch',
-    postal: '44360 St Etienne de Montluc',
+    postal: '44360 Saint-Étienne-de-Montluc',
     horaire: '16h - 21h',
     photo: '/images/spots/jeudi.jpg',
     alt: "Le Bus Dé'tourné garé place Foch à Saint-Étienne-de-Montluc",
@@ -42,9 +42,9 @@ export const planning: Spot[] = [
   },
   {
     jour: 'Vendredi',
-    lieu: 'Grandchamps des Fontaines',
+    lieu: 'Grandchamps-des-Fontaines',
     adresse: "Plan d'eau Notre dame des Fontaines",
-    postal: '44119 Grandchamps des Fontaines',
+    postal: '44119 Grandchamps-des-Fontaines',
     horaire: '16h - 21h',
     photo: '/images/spots/vendredi.jpg',
     alt: "Le Bus Dé'tourné garé au plan d'eau Notre-Dame-des-Fontaines à Grandchamps-des-Fontaines",
