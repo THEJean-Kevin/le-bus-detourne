@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /contact');
+    header('Location: /contact/');
     exit;
 }
 
@@ -60,7 +60,7 @@ $rateLimitSalt = 'LBDetourne-2026-7fK9mP2xQ4';
  */
 function redirectError(string $error): never
 {
-    header('Location: /contact/?error=' . rawurlencode($error));
+    header('Location: /contact//?error=' . rawurlencode($error));
     exit;
 }
 
@@ -415,7 +415,7 @@ $success = @mail(
 
 if ($success) {
     header(
-        'Location: /contact/merci/',
+        'Location: /contact//merci/',
         true,
         303
     );

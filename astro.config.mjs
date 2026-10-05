@@ -10,4 +10,5 @@ export default defineConfig({
   base: isPreview ? '/le-bus-detourne' : '',
   integrations: [sitemap()],
   build: { inlineStylesheets: 'always' },
+  trailingSlash: 'always'
 });

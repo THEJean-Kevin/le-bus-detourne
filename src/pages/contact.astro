@@ -18,7 +18,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <div class="contact-wrap">
       <form
         class="contact-form"
-        action={base + "/contact.php"}
+        action={base + "/contact/.php"}
         method="POST"
         novalidate
       >
@@ -89,6 +89,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         <button type="submit" class="btn btn-primary">
           Envoyer le message
         </button>
+        <p>Vos données servent uniquement à répondre à votre demande, voir les <a href={base + '/mentions-legales'}>mentions légales</a></p>
       </form>
 
       <div class="info-box">

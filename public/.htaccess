@@ -10,10 +10,10 @@ RewriteCond %{HTTP_HOST} ^lebusdetourne\.fr$ [NC]
 RewriteRule ^(.*)$ https://www.lebusdetourne.fr/$1 [R=301,L]
 
 # Redirections 301 depuis l'ancien site Wix
-RewriteRule ^notre-brunch/?$ /menus [R=301,L]
-RewriteRule ^privatiser-le-bus/?$ /privatisations [R=301,L]
-RewriteRule ^réceptions-privées/?$ /privatisations [R=301,L]
-RewriteRule ^contact-9/?$ /contact [R=301,L]
+RewriteRule ^notre-brunch/?$ /menus/ [R=301,L]
+RewriteRule ^privatiser-le-bus/?$ /privatisations/ [R=301,L]
+RewriteRule ^réceptions-privées/?$ /privatisations/ [R=301,L]
+RewriteRule ^contact-9/?$ /contact/ [R=301,L]
 
 # Page 404
 ErrorDocument 404 /404.html
