@@ -21,10 +21,10 @@ export const menuCategories: MenuCategory[] = [
     note: "Pour grignoter ou partager, à l'apéro ou en entrée",
     group: "repas",
     items: [
-      { name: "Tartinade Du Moment", price: "4,50 €", description: "accompagné de ses toasts", photo: /images/plats/"Tartinade.avif" },
-      { name: "Saucisson Du Moment (VPF)", price: "4,50 €", photo: /images/plats/"Saucisson.jpg" },
-      { name: "Planche De Fromage", price: "15,00 €", description: "à partager ou pas !", photo: /images/plats/"PlancheFromage.jpg", veget: true },
-      { name: "Soupe de légume (petit format)", price: "0,00€", description: "Soupe de légume maison du moment", photo: /images/plats/"SoupePetite.jpg", veget: true },
+      { name: "Tartinade Du Moment", price: "4,50 €", description: "accompagné de ses toasts", photo: "/images/plats/Tartinade.avif" },
+      { name: "Saucisson Du Moment (VPF)", price: "4,50 €", photo: "/images/plats/Saucisson.jpg" },
+      { name: "Planche De Fromage", price: "15,00 €", description: "à partager ou pas !", photo: "/images/plats/PlancheFromage.jpg", veget: true },
+      { name: "Soupe de légume (petit format)", price: "0,00€", description: "Soupe de légume maison du moment", photo: "/images/plats/SoupePetite.jpg", veget: true },
     ],
   },
   {
@@ -33,9 +33,9 @@ export const menuCategories: MenuCategory[] = [
     note: "Saucisse de boeuf du Gaec du Marais à Couëron (44220)",
     group: "repas",
     items: [
-      { name: "Le Classique", price: "6€", description: "Pain Viennois, Saucisse de Boeuf & Sauce au Choix (Ketchup, Mayonnaise, Moutarde)", photo: /images/plats/"HDClassique.jpg" },
-      { name: "Le Forestier", price: "8€", description: "Pain Viennois, Saucisse de Boeuf, Crème de moutarde, Comté, Champignon", photo: /images/plats/"HDForestier.jpg" },
-      { name: "Le Savoyard", price: "7€", description: "Pain Viennois, Jambon Serrano, Reblochon, Roquette, Oignon Confit", photo: /images/plats/"HDSavoyard.jpg" },
+      { name: "Le Classique", price: "6€", description: "Pain Viennois, Saucisse de Boeuf & Sauce au Choix (Ketchup, Mayonnaise, Moutarde)", photo: "/images/plats/HDClassique.jpg" },
+      { name: "Le Forestier", price: "8€", description: "Pain Viennois, Saucisse de Boeuf, Crème de moutarde, Comté, Champignon", photo: "/images/plats/HDForestier.jpg" },
+      { name: "Le Savoyard", price: "7€", description: "Pain Viennois, Jambon Serrano, Reblochon, Roquette, Oignon Confit", photo: "/images/plats/HDSavoyard.jpg" },
     ],
   },
   {
@@ -44,8 +44,8 @@ export const menuCategories: MenuCategory[] = [
     note: "Pain de Campagne de notre boulanger Au Petit Pétrin à Couëron (44220)",
     group: "repas",
     items: [
-      { name: "La Chèvre miel", price: "6,50€", description: "Pain de Campagne, Chèvre, Lardon, Miel", photo: /images/plats/"TartineChevre.jpg" },
-      { name: "La Fermière", price: "8,50€", description: "Pain de Campagne, Boudin noir, Noix, Pomme, Comté", photo: /images/plats/"TartineFermiere.jpg" },
+      { name: "La Chèvre miel", price: "6,50€", description: "Pain de Campagne, Chèvre, Lardon, Miel", photo: "/images/plats/TartineChevre.jpg" },
+      { name: "La Fermière", price: "8,50€", description: "Pain de Campagne, Boudin noir, Noix, Pomme, Comté", photo: "/images/plats/TartineFermiere.jpg" },
     ],
   },
   {
@@ -53,9 +53,9 @@ export const menuCategories: MenuCategory[] = [
     title: "Nos incontournables",
     group: "repas",
     items: [
-      { name: "Soupe de légume (grand format)", price: "8,50€", description: "Soupe de légume maison du moment", photo: /images/plats/"SoupeGrande.jpg", veget: true },
-      { name: "Tartelette Boudin", price: "9€", description: "Tartelette, Boudin Noir, Pomme, Lardon, Poireau. Accompagné de sa garniture du moment", photo: /images/plats/"Tartelette.jpg" },
-      { name: "Le croque Monsieur", price: "5,50€", description: "Pain de mie, Comté, Jambon Serrano, Champignon, Moutarde", photo: /images/plats/"CroqueMonsieur.jpg" },
+      { name: "Soupe de légume (grand format)", price: "8,50€", description: "Soupe de légume maison du moment", photo: "/images/plats/SoupeGrande.jpg", veget: true },
+      { name: "Tartelette Boudin", price: "9€", description: "Tartelette, Boudin Noir, Pomme, Lardon, Poireau. Accompagné de sa garniture du moment", photo: "/images/plats/Tartelette.jpg" },
+      { name: "Le croque Monsieur", price: "5,50€", description: "Pain de mie, Comté, Jambon Serrano, Champignon, Moutarde", photo: "/images/plats/CroqueMonsieur.jpg" },
     ],
   },
   {
@@ -63,12 +63,12 @@ export const menuCategories: MenuCategory[] = [
     title: "Notes sucrées",
     group: "repas",
     items: [
-      { name: "Poire poché au chocolat", price: "3,50€", description: "Poire poché avec nappage chocolat", photo: /images/plats/"Poire.jpg", veget: true },
-      { name: "Cookie aux pépites de chocolat", price: "4€", photo: /images/plats/"Cookie.avif" },
-      { name: "Brioche façon pain perdu", price: "Caramel : 4€ Nutella 5€", description: "Caramel au beurre salé ou nutella", photo: /images/plats/"Brioche.avif" },
-      { name: "La crêpe party du bus", price: "3,50€", description: "Au choix : Sucre / Caramel au beurre salé / Nature", photo: /images/plats/"Crepe.jpg" },
-      { name: "Compote de pommes", price: "4€", photo: /images/plats/"Compote.jpg", veget: true },
-      { name: "Coupe de glace", price: "1 boule - 1,50€ / 2 boules - 2,25€ / 3 boules - 3€", photo: /images/plats/"Glace.jpg" },
+      { name: "Poire poché au chocolat", price: "3,50€", description: "Poire poché avec nappage chocolat", photo: "/images/plats/Poire.jpg", veget: true },
+      { name: "Cookie aux pépites de chocolat", price: "4€", photo: "/images/plats/Cookie.avif" },
+      { name: "Brioche façon pain perdu", price: "Caramel : 4€ Nutella 5€", description: "Caramel au beurre salé ou nutella", photo: "/images/plats/Brioche.avif" },
+      { name: "La crêpe party du bus", price: "3,50€", description: "Au choix : Sucre / Caramel au beurre salé / Nature", photo: "/images/plats/Crepe.jpg" },
+      { name: "Compote de pommes", price: "4€", photo: "/images/plats/Compote.jpg", veget: true },
+      { name: "Coupe de glace", price: "1 boule - 1,50€ / 2 boules - 2,25€ / 3 boules - 3€", photo: "/images/plats/Glace.jpg" },
     ],
   },
   {
