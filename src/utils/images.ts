@@ -23,3 +23,9 @@ export function resolveImage(path: string): ImageMetadata {
   }
   return image;
 }
+
+export function resolveCorrectImage(path: string): ImageMetadata {
+  const key = path.replace(/^\/?images\//, '/src/assets/images/');
+  const image = images[key];
+  return image
+}
