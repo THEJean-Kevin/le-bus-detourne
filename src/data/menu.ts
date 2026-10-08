@@ -65,10 +65,10 @@ export const menuCategories: MenuCategory[] = [
     items: [
       { name: "Poire poché au chocolat", price: "3,50€", description: "Poire poché avec nappage chocolat", photo: "/images/plats/Poire.jpg", veget: true },
       { name: "Cookie aux pépites de chocolat", price: "4€", photo: "/images/plats/Cookie.avif" },
-      { name: "Brioche façon pain perdu", price: "Caramel : 4€ Nutella 5€", description: "Caramel au beurre salé ou nutella", photo: "/images/plats/Brioche.avif" },
+      { name: "Brioche façon pain perdu", price: "Caramel : 4€ \nNutella :  5€", description: "Caramel au beurre salé ou nutella", photo: "/images/plats/Brioche.avif" },
       { name: "La crêpe party du bus", price: "3,50€", description: "Au choix : Sucre / Caramel au beurre salé / Nature", photo: "/images/plats/Crepe.jpg" },
       { name: "Compote de pommes", price: "4€", photo: "/images/plats/Compote.jpg", veget: true },
-      { name: "Coupe de glace", price: "1 boule - 1,50€ / 2 boules - 2,25€ / 3 boules - 3€", photo: "/images/plats/Glace.jpg" },
+      { name: "Coupe de glace", price: "1 boule - 1,50€  \n2 boules - 2,25€ \n3 boules - 3€", photo: "/images/plats/Glace.jpg" },
     ],
   },
   {
