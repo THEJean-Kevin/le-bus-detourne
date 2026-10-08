@@ -45,6 +45,8 @@ export const menuCategories: MenuCategory[] = [
     group: "repas",
     items: [
       { name: "La Chèvre miel", price: "6,50€", description: "Pain de Campagne, Chèvre, Lardon, Miel", photo: "/images/plats/TartineChevre.jpg" },
+      { name: "La douceur du Verget", price: "7,50€", description: "Pain de Campagne, Jambon Serrano, Tome de Couëron, Poire, Roquette", photo: "/images/plats/TartineCoeuron.jpg" },
+      { name: "La tartine des Sous-bois", price: "6€", description: "Pain de Campagne, Camenbert, Champignon, Ail, Persil", photo: "/images/plats/TartineChampignon.jpg", veget: true },
       { name: "La Fermière", price: "8,50€", description: "Pain de Campagne, Boudin noir, Noix, Pomme, Comté", photo: "/images/plats/TartineFermiere.jpg" },
     ],
   },
@@ -64,8 +66,8 @@ export const menuCategories: MenuCategory[] = [
     group: "repas",
     items: [
       { name: "Poire poché au chocolat", price: "3,50€", description: "Poire poché avec nappage chocolat", photo: "/images/plats/Poire.jpg", veget: true },
-      { name: "Cookie aux pépites de chocolat", price: "4€", photo: "/images/plats/Cookie.avif" },
-      { name: "Brioche façon pain perdu", price: "Caramel : 4€ \nNutella :  5€", description: "Caramel au beurre salé ou nutella", photo: "/images/plats/Brioche.avif" },
+      { name: "Cookie aux pépites de chocolat", price: "4€", photo: "/images/plats/Cookie.jpg" },
+      { name: "Brioche façon pain perdu", price: "Caramel : 4€ \nNutella :  5€", description: "Caramel au beurre salé ou nutella", photo: "/images/plats/Brioche.jpg" },
       { name: "La crêpe party du bus", price: "3,50€", description: "Au choix : Sucre / Caramel au beurre salé / Nature", photo: "/images/plats/Crepe.jpg" },
       { name: "Compote de pommes", price: "4€", photo: "/images/plats/Compote.jpg", veget: true },
       { name: "Coupe de glace", price: "1 boule - 1,50€  \n2 boules - 2,25€ \n3 boules - 3€", photo: "/images/plats/Glace.jpg" },
