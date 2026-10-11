@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
-import { resolveImage } from '../utils/images';
+import { resolveImage,resolveCorrectImage } from '../utils/images';
 import brunchImg from '../assets/images/plats/Brunch.jpg';
 import { menuCategories } from '../data/menu.ts';
 
@@ -31,7 +31,7 @@ const boissonsCategories = menuCategories.filter((c) => c.group === 'boissons');
             {cat.items.map((item,i2) => (
               <article class="dish-card">
                 <div class="photo-wrap">
-                  {item.photo ? (
+                  {item.photo && resolveCorrectImage(item.photo) ? (
                     <Image
                       src={resolveImage(item.photo)}
                       alt={item.name}
@@ -234,7 +234,7 @@ const boissonsCategories = menuCategories.filter((c) => c.group === 'boissons');
   }
 
   .dish-name { font-weight: 700; font-size: 1rem; }
-  .price { font-weight: 700; white-space: nowrap; }
+  .price { font-weight: 700; white-space: pre-line; }
 
   .dish-desc {
     margin: 0;
