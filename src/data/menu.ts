@@ -111,7 +111,7 @@ export const menuCategories: MenuCategory[] = [
     items: [
       { name: "Muscadet (Blanc sec)", price: "4,00 €", description: "Domaine de la Noué" },
       { name: "P'tit Gris (Blanc Fruité)", price: "4,50 €", description: "Domaine de la Noué" },
-      { name: "Rosé", price: "3,50 €" },
+      { name: "Rosé", price: "3,50 €", description: "Domaine de la Noué" },
       { name: "Pétillant (Mousseux brut)", price: "4,50 €", description: "Domaine de la Noué" },
     ],
   },
