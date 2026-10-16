@@ -23,7 +23,7 @@ export const announcements: Announcement[] = [
   },
   {
     text: "La nouvelle carte pour la saison d'hiver est disponible, venez la découvrir.",
-    website: "https://www.lebusdetourne.fr/notre-carte",
+    website: "https://www.lebusdetourne.fr/menus/",
     startDate: "2026-10-19"
   },
 ];
