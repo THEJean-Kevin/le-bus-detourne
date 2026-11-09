@@ -1,27 +1,81 @@
 ---
 // src/components/AnnouncementBanner.astro
-import { getActiveAnnouncements } from "../data/Announcements.ts";
-
-const active = getActiveAnnouncements();
+import { announcements } from "../data/Announcements.ts";
 ---
 
-{active.length > 0 && (
-  <div class="announcement-stack">
-    <p class="announcement-title">Point Actualité</p>
-    {active.map((a) => (
-      <div class="announcement-banner">
-        <p class="announcement-text">
-          {a.text}
-          {a.website && (
-            <a href={a.website} class="announcement-link" target="_blank" rel="noopener noreferrer">
-              En savoir plus
-            </a>
-          )}
-        </p>
-      </div>
-    ))}
-  </div>
-)}
+<div class="announcement-stack" hidden>
+  <p class="announcement-title">Point Actualité</p>
+
+  {announcements.map((a) => (
+    <div
+      class="announcement-banner"
+      data-start-date={a.startDate ?? ""}
+      data-end-date={a.endDate ?? ""}
+      hidden
+    >
+      <p class="announcement-text">
+        {a.text}
+        {a.website && (
+          <a
+            href={a.website}
+            class="announcement-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            En savoir plus
+          </a>
+        )}
+      </p>
+    </div>
+  ))}
+</div>
+
+<script>
+  function updateAnnouncements() {
+    const today = new Date();
+
+    // Date locale au format YYYY-MM-DD
+    const currentDate = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, "0"),
+      String(today.getDate()).padStart(2, "0"),
+    ].join("-");
+
+    document.querySelectorAll(".announcement-stack").forEach((stack) => {
+      const banners = stack.querySelectorAll(".announcement-banner");
+
+      let hasActiveAnnouncement = false;
+
+      banners.forEach((banner) => {
+        const startDate = banner.getAttribute("data-start-date");
+        const endDate = banner.getAttribute("data-end-date");
+
+        const isActive =
+          (!startDate || currentDate >= startDate) &&
+          (!endDate || currentDate <= endDate);
+
+        (banner as HTMLElement).hidden = !isActive;
+
+        if (isActive) {
+          hasActiveAnnouncement = true;
+        }
+      });
+
+      (stack as HTMLElement).hidden = !hasActiveAnnouncement;
+    });
+  }
+
+  // Vérification au chargement
+  updateAnnouncements();
+
+
+  // Vérification lorsque l'utilisateur revient sur l'onglet
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+      updateAnnouncements();
+    }
+  });
+</script>
 
 <style>
   .announcement-title {
@@ -49,6 +103,9 @@ const active = getActiveAnnouncements();
     padding: 0.6rem 1rem;
     text-align: center;
     border-bottom: 0.1rem solid rgba(0, 0, 0, 0.14);
+    [hidden] {
+      display: none !important;
+    }
   }
 
   .announcement-text {
