@@ -220,18 +220,56 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
  *
  * Un vrai visiteur ne remplit jamais ce champ.
  */
+function est_spam(array $post): bool
+{
+    // 1. Honeypot : champ caché que seul un robot remplit
+    if (trim((string)($post['website'] ?? '')) !== '') {
+        return true;
+    }
 
-$honeypot = trim(
-    (string)($_POST['website'] ?? '')
-);
+    // 2. Temps de remplissage mesuré par le navigateur (en ms) : un humain met plus de 3 s
+    $dt = isset($post['dt']) ? (int)$post['dt'] : 0;
+    if ($dt < 3000) {
+        return true;
+    }
 
-if ($honeypot !== '') {
-    /*
-     * On ne donne pas d'information au bot.
-     */
-    redirectError('spam');
+    // 3. Validation du contenu
+    $nom   = trim((string)($post['nom'] ?? ''));
+    $email = trim((string)($post['email'] ?? ''));
+    $tel   = trim((string)($post['telephone'] ?? ''));
+    $msg   = trim((string)($post['message'] ?? ''));
+
+    if ($nom === '' || mb_strlen($nom) > 100) {
+        return true;
+    }
+    if (preg_match('/[\r\n]/', $nom . $email . $tel)) { // tentative d'injection d'en-têtes
+        return true;
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || mb_strlen($email) > 150) {
+        return true;
+    }
+    if ($tel !== '' && !preg_match('/^[0-9 +().-]{6,20}$/', $tel)) {
+        return true;
+    }
+    if (mb_strlen($msg) < 10 || mb_strlen($msg) > 3000) {
+        return true;
+    }
+
+
+    return false;
 }
 
+if (est_spam($_POST)) {
+    // Ne rien envoyer, mais répondre comme si tout s'était bien passé,
+    // pour ne pas renseigner le robot.
+    header(
+        'Location: /contact//merci/',
+        true,
+        303
+    );
+
+    exit;
+}
 
 /*
  * ============================================================
