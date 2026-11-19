@@ -17,14 +17,10 @@ export interface Announcement {
 
 export const announcements: Announcement[] = [
   {
-    text: "Fermeture exceptionnelle pour congé du 17 octobre au 10 novembre, on se retrouve le 11 novembre à Couëron!",
-    startDate: "2026-10-12",
-    endDate: "2026-11-08",
-  },
-  {
     text: "La nouvelle carte pour la saison d'hiver est disponible, venez la découvrir.",
     website: "https://www.lebusdetourne.fr/menus/",
-    startDate: "2026-10-19"
+    startDate: "2026-10-19",
+    endDate: "2026-12-01",
   },
 ];
 
