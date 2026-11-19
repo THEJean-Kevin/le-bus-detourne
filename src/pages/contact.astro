@@ -22,20 +22,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         method="POST"
         novalidate
       >
-        <!--
-          Honeypot anti-spam.
-          Invisible pour un humain, mais les bots ont tendance à le remplir.
-        -->
-        <div class="hp-field" aria-hidden="true">
-          <label for="website">Website</label>
-          <input
-            type="text"
-            id="website"
-            name="website"
-            tabindex="-1"
-            autocomplete="off"
-          />
+        <div class="champ-website" aria-hidden="true">
+          <label for="website">Site web</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
         </div>
+        <input type="hidden" id="dt" name="dt" value="" />
 
         <div>
           <label for="nom">Nom</label>
@@ -203,6 +194,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   }
 </script>
 
+<script is:inline>
+  (function () {
+    var form = document.querySelector('form');
+    if (!form) return;
+    var start = Date.now();
+    form.addEventListener('submit', function () {
+      document.getElementById('dt').value = String(Date.now() - start);
+    });
+  })();
+</script>
+
 <style>
   .contact-wrap {
     display: grid;
@@ -253,16 +255,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     min-height: 110px;
     resize: vertical;
   }
-
-  /*
-   * Champ honeypot.
-   * On évite display:none afin que certains bots ne détectent
-   * pas immédiatement qu'il s'agit d'un champ anti-spam.
-   */
-  .hp-field {
+  .champ-website {
     position: absolute;
-    left: -10000px;
-    top: auto;
+    left: -9999px;
     width: 1px;
     height: 1px;
     overflow: hidden;
