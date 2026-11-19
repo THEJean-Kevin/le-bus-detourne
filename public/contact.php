@@ -248,9 +248,7 @@ function est_spam(array $post): bool
     if (!filter_var($email, FILTER_VALIDATE_EMAIL) || mb_strlen($email) > 150) {
         return true;
     }
-    if ($tel !== '' && !preg_match('/^[0-9 +().-]{6,20}$/', $tel)) {
-        return true;
-    }
+
     if (mb_strlen($msg) < 10 || mb_strlen($msg) > 3000) {
         return true;
     }
